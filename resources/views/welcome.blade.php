@@ -19,7 +19,16 @@
 
 <body>
     <h1>Home Page</h1>
+    <a href="/login"> Login </a>
+</br>
     <a href="/register"> Register </a>
+</br>
+<form method="POST" action="/logout">
+    @csrf
+    <button type = "submit">
+        Logout
+    </button>
+</form>
 </body>
 
 </html>

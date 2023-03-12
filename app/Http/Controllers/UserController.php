@@ -12,6 +12,10 @@ class UserController extends Controller
     public function register() {
         return view('users.register');
     }
+    // show login form
+    public function login() {
+        return view('users.login');
+    }
 
     //create new user
     public function store(Request $request) {
@@ -37,5 +41,32 @@ class UserController extends Controller
         auth()->login($user);
 
         return redirect('/')->with('message', 'Account has been created. You are now logged in!');
+    }
+
+    //login user
+    public function authenticate(Request $request) {
+        $formFields = $request->validate([
+            'email' => ['required', 'email'],
+            'password' => ['required']
+        ]);
+
+        if(auth()->attempt($formFields)) {
+            $request->session()->regenerate();
+
+            return redirect('/')->with('message', 'Logged In');
+        }
+        return back();
+    
+    } 
+
+    //log out user
+    public function logout(Request $request){
+        auth()->logout();
+
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+
+        return redirect('/')->with('message', 'You have logged out');
+
     }
 }
