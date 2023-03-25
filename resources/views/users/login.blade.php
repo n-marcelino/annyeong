@@ -44,7 +44,7 @@
             top: 310px;
             left: -20px;
             color: white;
-            z-index:9999;
+            z-index:999;
         }
 
         .title{
@@ -66,6 +66,7 @@
             background: white;
             border-radius: 25px;
             width: 40%;
+            z-index: 9999;
         }
 
         .form-header {
