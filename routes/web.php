@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Models\Product;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -14,8 +16,19 @@ use App\Http\Controllers\UserController;
 |
 */
 
+//main page w/ all products
 Route::get('/', function () {
-    return view('welcome');
+    return view('productsHome', [
+        'heading' => 'Our Products',
+        'products' => Product::all()
+    ]);
+});
+
+//singe product
+Route::get('/products/{id}', function ($id) {
+    return view('product', [
+        'product' => Product::find($id)
+    ]);
 });
 
 //redirect to register form

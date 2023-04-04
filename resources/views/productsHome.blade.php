@@ -18,12 +18,16 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 
-
-
-
-
     <!-- Styles -->
     <style>
+        .product-container {
+            width: 190px;
+            height: 254px;
+            border-radius: 30px;
+            background: #e0e0e0;
+            box-shadow: 15px 15px 30px #bebebe,
+                -15px -15px 30px #ffffff;
+        }
 
     </style>
 
@@ -48,7 +52,6 @@
 </head>
 
 <body>
-    <h1>Home Page</h1>
     <a href="/login"> Login </a>
     </br>
     <a href="/register"> Register </a>
@@ -59,6 +62,35 @@
             Logout
         </button>
     </form>
+
+    <br><br>
+
+    <h1>Home Page</h1>
+    <h1>{{$heading}}</h1>
+
+   @unless (count($products) == 0)
+
+    @foreach($products as $product)
+        <div class="product-container">
+            <div class="product-description">
+                <h2 class="text-center text-blue-500 underline">
+                    <a href="/products/{{$product['id']}}">{{$product['name']}}
+                </h2>
+                <p class="text-center">
+                    {{$product['price']}}
+                </p>
+                <p class="text-center">
+                    In-stock: {{$product['stock']}}
+                </p>
+            </div>
+        </div>
+    @endforeach
+
+    @else
+    <p>No products found.</p>
+    @endunless
+
 </body>
 
 </html>
+
