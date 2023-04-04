@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Product;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -10,13 +11,26 @@ class DatabaseSeeder extends Seeder
     /**
      * Seed the application's database.
      */
-    public function run(): void
+    public function run()
     {
         // \App\Models\User::factory(10)->create();
 
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+        Product::create([
+            'name' => 'Aldub Album',
+            'price' => 1200.00,
+            'stock' => 10,
+            'Category_ID' => 1,
+            'Fandom_ID' => 1,
+            'Seller_ID' => 1
+        ]);
+
+        Product::create([
+            'name' => 'Cardo Photocard',
+            'price' => 250.00,
+            'stock' => 3,
+            'Category_ID' => 2,
+            'Fandom_ID' => 2,
+            'Seller_ID' => 2
+        ]);
     }
 }

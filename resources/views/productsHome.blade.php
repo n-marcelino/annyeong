@@ -60,6 +60,7 @@
                             </svg>
                         </a>
 
+<<<<<<< Updated upstream:resources/views/welcome.blade.php
                         <a href="https://laracasts.com" class="scale-100 p-6 bg-white dark:bg-gray-800/50 dark:bg-gradient-to-bl from-gray-700/50 via-transparent dark:ring-1 dark:ring-inset dark:ring-white/5 rounded-lg shadow-2xl shadow-gray-500/20 dark:shadow-none flex motion-safe:hover:scale-[1.01] transition-all duration-250 focus:outline focus:outline-2 focus:outline-red-500">
                             <div>
                                 <div class="h-16 w-16 bg-red-50 dark:bg-red-800/20 flex items-center justify-center rounded-full">
@@ -67,6 +68,18 @@
                                         <path stroke-linecap="round" d="M15.75 10.5l4.72-4.72a.75.75 0 011.28.53v11.38a.75.75 0 01-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 002.25-2.25v-9a2.25 2.25 0 00-2.25-2.25h-9A2.25 2.25 0 002.25 7.5v9a2.25 2.25 0 002.25 2.25z" />
                                     </svg>
                                 </div>
+=======
+    <!-- Styles -->
+    <style>
+        .product-container {
+            width: 190px;
+            height: 254px;
+            border-radius: 30px;
+            background: #e0e0e0;
+            box-shadow: 15px 15px 30px #bebebe,
+                -15px -15px 30px #ffffff;
+        }
+>>>>>>> Stashed changes:resources/views/productsHome.blade.php
 
                                 <h2 class="mt-6 text-xl font-semibold text-gray-900 dark:text-white">Laracasts</h2>
 
@@ -80,6 +93,7 @@
                             </svg>
                         </a>
 
+<<<<<<< Updated upstream:resources/views/welcome.blade.php
                         <a href="https://laravel-news.com" class="scale-100 p-6 bg-white dark:bg-gray-800/50 dark:bg-gradient-to-bl from-gray-700/50 via-transparent dark:ring-1 dark:ring-inset dark:ring-white/5 rounded-lg shadow-2xl shadow-gray-500/20 dark:shadow-none flex motion-safe:hover:scale-[1.01] transition-all duration-250 focus:outline focus:outline-2 focus:outline-red-500">
                             <div>
                                 <div class="h-16 w-16 bg-red-50 dark:bg-red-800/20 flex items-center justify-center rounded-full">
@@ -137,4 +151,47 @@
             </div>
         </div>
     </body>
+=======
+<body>
+    <a href="/login"> Login </a>
+    </br>
+    <a href="/register"> Register </a>
+    </br>
+    <form method="POST" action="/logout">
+        @csrf
+        <button type="submit">
+            Logout
+        </button>
+    </form>
+
+    <br><br>
+
+    <h1>Home Page</h1>
+    <h1>{{$heading}}</h1>
+
+   @unless (count($products) == 0)
+
+    @foreach($products as $product)
+        <div class="product-container">
+            <div class="product-description">
+                <h2 class="text-center text-blue-500 underline">
+                    <a href="/products/{{$product['id']}}">{{$product['name']}}
+                </h2>
+                <p class="text-center">
+                    {{$product['price']}}
+                </p>
+                <p class="text-center">
+                    In-stock: {{$product['stock']}}
+                </p>
+            </div>
+        </div>
+    @endforeach
+
+    @else
+    <p>No products found.</p>
+    @endunless
+
+</body>
+
+>>>>>>> Stashed changes:resources/views/productsHome.blade.php
 </html>
