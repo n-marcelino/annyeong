@@ -1,3 +1,4 @@
+
 <h2 class="text-center">
     {{$product['name']}}
 </h2>

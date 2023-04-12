@@ -68,6 +68,9 @@
     <h1>Home Page</h1>
     <h1>{{$heading}}</h1>
 
+    @include('partials._search')
+   
+
    @unless (count($products) == 0)
 
     @foreach($products as $product)

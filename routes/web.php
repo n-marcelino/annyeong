@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ProductsController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Models\Product;
@@ -17,19 +18,10 @@ use App\Models\Product;
 */
 
 //main page w/ all products
-Route::get('/', function () {
-    return view('productsHome', [
-        'heading' => 'Our Products',
-        'products' => Product::all()
-    ]);
-});
+Route::get('/', [ProductsController::class, 'index']);
 
-//singe product
-Route::get('/products/{id}', function ($id) {
-    return view('product', [
-        'product' => Product::find($id)
-    ]);
-});
+//single product
+Route::get('/products/{product}', [ProductsController::class, 'show']);
 
 //redirect to register form
 Route::get('/register', [UserController::class, 'register']);

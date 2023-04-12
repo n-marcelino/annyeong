@@ -32,5 +32,23 @@ class DatabaseSeeder extends Seeder
             'Fandom_ID' => 2,
             'Seller_ID' => 2
         ]);
+
+        Product::create([
+            'name' => 'Cardo Album',
+            'price' => 1500.00,
+            'stock' => 16,
+            'Category_ID' => 1,
+            'Fandom_ID' => 2,
+            'Seller_ID' => 2
+        ]);
+
+        Product::create([
+            'name' => 'Aldub Photocard',
+            'price' => 250.00,
+            'stock' => 17,
+            'Category_ID' => 1,
+            'Fandom_ID' => 1,
+            'Seller_ID' => 1
+        ]);
     }
 }
