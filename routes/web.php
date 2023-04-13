@@ -20,6 +20,12 @@ use App\Models\Product;
 //main page w/ all products
 Route::get('/', [ProductsController::class, 'index']);
 
+//create form
+Route::get('/products/create', [ProductsController::class, 'create']);
+
+//store product listings
+Route::post('/products', [ProductsController::class, 'store']);
+
 //single product
 Route::get('/products/{product}', [ProductsController::class, 'show']);
 
@@ -37,3 +43,7 @@ Route::post('/logout', [UserController::class, 'logout']);
 
 //log in user
 Route::post('/users/authenticate', [UserController::class, 'authenticate']);
+
+
+
+

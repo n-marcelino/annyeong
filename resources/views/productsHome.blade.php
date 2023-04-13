@@ -67,6 +67,7 @@
 
     <h1>Home Page</h1>
     <h1>{{$heading}}</h1>
+    <a href = "/products/create"> List Your Item </a>
 
     @include('partials._search')
    
@@ -84,6 +85,9 @@
                 </p>
                 <p class="text-center">
                     In-stock: {{$product['stock']}}
+                </p>
+                <p class="text-center">
+                    {{$product['description']}}
                 </p>
             </div>
         </div>

@@ -19,6 +19,7 @@ class DatabaseSeeder extends Seeder
             'name' => 'Aldub Album',
             'price' => 1200.00,
             'stock' => 10,
+            'description' => 'dftawetbasegbaesfgs',
             'Category_ID' => 1,
             'Fandom_ID' => 1,
             'Seller_ID' => 1
@@ -28,6 +29,7 @@ class DatabaseSeeder extends Seeder
             'name' => 'Cardo Photocard',
             'price' => 250.00,
             'stock' => 3,
+            'description' => 'zxczxczxc',
             'Category_ID' => 2,
             'Fandom_ID' => 2,
             'Seller_ID' => 2
@@ -37,6 +39,7 @@ class DatabaseSeeder extends Seeder
             'name' => 'Cardo Album',
             'price' => 1500.00,
             'stock' => 16,
+            'description' => 'zqqwrwqrvasdgasvdtraewbawe',
             'Category_ID' => 1,
             'Fandom_ID' => 2,
             'Seller_ID' => 2
@@ -46,6 +49,7 @@ class DatabaseSeeder extends Seeder
             'name' => 'Aldub Photocard',
             'price' => 250.00,
             'stock' => 17,
+            'description' => 'qrqwertqwetqbweqwtye',
             'Category_ID' => 1,
             'Fandom_ID' => 1,
             'Seller_ID' => 1

@@ -9,6 +9,8 @@ class Product extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['name', 'price', 'stock', 'description', 'Category_ID', 'Fandom_ID', 'Seller_ID'];
+
     public function scopeFilter($query, array $filters)
     {
         if($filters['search'] ?? false) {
