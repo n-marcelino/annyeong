@@ -11,9 +11,8 @@ class ProductsController extends Controller
     //show all products
     public function index() {
            return view('productsHome', [
-                'heading' => 'Our Products',
                 'products' => Product::latest()->filter
-                (request(['search'])) -> get()
+                (request(['search'])) -> paginate(3)
             ]);
         }
 
