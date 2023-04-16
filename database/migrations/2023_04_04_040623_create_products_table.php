@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('name');
             $table->double('price');
             $table->integer('stock');
+            $table->string('photo')->nullable();
             $table->longText('description');
             $table->integer('Category_ID');
             $table->integer('Fandom_ID');

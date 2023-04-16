@@ -1,4 +1,4 @@
-
+<img class="w-48 mr-6 mb-6" src="{{$product->photo ? asset('storage/' . $product->photo) : asset('/images/no-image.png')}}" alt=""/>
 <h2 class="text-center">
     {{$product['name']}}
 </h2>

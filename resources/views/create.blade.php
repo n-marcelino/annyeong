@@ -8,7 +8,7 @@ class="bg-gray-50 border border-gray-200 p-10 rounded max-w-lg mx-auto mt-24"
     <p class="mb-4">List Your K-Pop Merchandise</p>
 </header>
 
-<form method = "post" action="/products">
+<form action="/products" method="POST" enctype="multipart/form-data">
     @csrf
     <div class="mb-6">
         <label
@@ -19,7 +19,7 @@ class="bg-gray-50 border border-gray-200 p-10 rounded max-w-lg mx-auto mt-24"
         <input
             type="text"
             class="border border-gray-200 rounded p-2 w-full"
-            name="name" value = " {{old('name')}} "
+            name="name"value ="{{old('name')}}"
         />
 
         @error('name')
@@ -34,7 +34,7 @@ class="bg-gray-50 border border-gray-200 p-10 rounded max-w-lg mx-auto mt-24"
         <input
             type="number" step="0.01"
             class="border border-gray-200 rounded p-2 w-full"
-            name="price" value = " {{old('price')}} "
+            name="price" value ="{{old('price')}}"
         />
 
         @error('price')
@@ -51,7 +51,7 @@ class="bg-gray-50 border border-gray-200 p-10 rounded max-w-lg mx-auto mt-24"
         <input
         type="number" step="1"
             class="border border-gray-200 rounded p-2 w-full"
-            name="stock" value = " {{old('stock')}} "
+            name="stock" value ="{{old('stock')}}"
 
         />
 
@@ -60,23 +60,27 @@ class="bg-gray-50 border border-gray-200 p-10 rounded max-w-lg mx-auto mt-24"
         @enderror
     </div>
 
-    {{-- <div class="mb-6">
-        <label for="logo" class="inline-block text-lg mb-2">
+    <div class="mb-6">
+        <label for="photo" class="inline-block text-lg mb-2">
             Product Photo
         </label>
         <input
             type="file"
             class="border border-gray-200 rounded p-2 w-full"
-            name="logo"
+            name="photo"
         />
-    </div> --}}
+
+        @error('photo')
+            <p class = "text-red-500 text-xs mt-1"> {{$message}} </p>
+        @enderror
+    </div>
 
     <div class="mb-6">
         <label
             for="description"
             class="inline-block text-lg mb-2"
         >
-            Product description
+        Product description
         </label>
         <textarea
             class="border border-gray-200 rounded p-2 w-full"
@@ -84,7 +88,7 @@ class="bg-gray-50 border border-gray-200 p-10 rounded max-w-lg mx-auto mt-24"
             
             rows="10"
             placeholder="Give as much relevant information about the product as you can."
-        > {{old('description')}} </textarea>
+        >{{old('description')}}</textarea>
 
         @error('description')
             <p class = "text-red-500 text-xs mt-1"> {{$message}} </p>
@@ -98,7 +102,7 @@ class="bg-gray-50 border border-gray-200 p-10 rounded max-w-lg mx-auto mt-24"
         <input
             type="number" step="1"
             class="border border-gray-200 rounded p-2 w-full"
-            name="Category_ID" value = " {{old('Category_ID')}} "
+            name="Category_ID" value ="{{old('Category_ID')}}""
         />
 
         @error('Category ID')
@@ -113,7 +117,7 @@ class="bg-gray-50 border border-gray-200 p-10 rounded max-w-lg mx-auto mt-24"
         <input
             type="number" step="1"
             class="border border-gray-200 rounded p-2 w-full"
-            name="Fandom_ID" value = " {{old('Fandom_ID')}} "
+            name="Fandom_ID" value =" {{old('Fandom_ID')}} "
         />
 
         @error('Fandom_ID')
@@ -128,7 +132,7 @@ class="bg-gray-50 border border-gray-200 p-10 rounded max-w-lg mx-auto mt-24"
         <input
             type="number" step="1"
             class="border border-gray-200 rounded p-2 w-full"
-            name="Seller_ID" value = " {{old('Seller_ID')}} "
+            name="Seller_ID" value =" {{old('Seller_ID')}} "
         />
 
         @error('Seller_ID')

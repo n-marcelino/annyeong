@@ -33,6 +33,10 @@ class ProductsController extends Controller
             'Seller_ID' => 'required'
         ]);
 
+        if($request->hasFile('photo')) {
+            $formFields['photo'] = $request->file('photo')->store('photos', 'public');
+        }
+
         Product::create($formFields);
 
         return redirect('/');
