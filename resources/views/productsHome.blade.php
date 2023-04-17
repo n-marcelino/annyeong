@@ -51,8 +51,15 @@
 
         <nav class="navbar">
             <a href="#home"><i class="fa-solid fa-house"></i></a>
+            @auth
+            <span class ="font-bold uppercase">
+                Welcome {{auth()->user()->uname}}
+            </span>
+            <a href="/products/manage">dashboard</a>
+            @else
             <a href="/login">login</a>
             <a href="/login">register</a>
+            @endauth
             <a href="">About the Devs</a>
         </nav>
 
