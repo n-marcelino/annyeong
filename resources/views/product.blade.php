@@ -11,4 +11,15 @@
 <p class="text-center">
     {{$product['description']}}
 </p>
+<a href="/products/{{$product -> id}}/edit">
+    Edit
+</a>
+<br>
+<form method="POST" action="/products/{{$product -> id}}">
+    @csrf
+    @method('DELETE')
+    <button>Delete</button>
+</form>
 <a href="/" class="text-black ml-4"> Back </a>
+
+

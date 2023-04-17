@@ -29,6 +29,15 @@ Route::post('/products', [ProductsController::class, 'store']);
 //single product
 Route::get('/products/{product}', [ProductsController::class, 'show']);
 
+//edit form
+Route::get('/products/{product}/edit', [ProductsController::class, 'edit']);
+
+//update product listing
+Route::put('/products/{product}', [ProductsController::class, 'update']);
+
+//remove listed product
+Route::delete('/products/{product}', [ProductsController::class, 'remove']);
+
 //redirect to register form
 Route::get('/register', [UserController::class, 'register']);
 
