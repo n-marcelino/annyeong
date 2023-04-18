@@ -26,6 +26,9 @@ Route::get('/products/create', [ProductsController::class, 'create'])->middlewar
 //store product listings
 Route::post('/products', [ProductsController::class, 'store'])->middleware('auth');
 
+//seller's dashboard
+Route::get('/products/manage', [ProductsController::class, 'manage'])->middleware('auth');
+
 //single product
 Route::get('/products/{product}', [ProductsController::class, 'show']);
 

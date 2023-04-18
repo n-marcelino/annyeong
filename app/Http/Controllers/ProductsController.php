@@ -91,6 +91,9 @@ class ProductsController extends Controller
         ]);
     }
 
-
+    //manage posts
+    public function manage() {
+        return view('manage', ['products' => auth()->user()->products()->get()]);
+    }
 
 }

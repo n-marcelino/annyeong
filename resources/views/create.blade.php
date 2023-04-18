@@ -11,8 +11,19 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
         integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="{{ url('css/createProductFrom.css') }}">
+
     <title>Item Creation Form</title>
+
+    <style>
+        * {
+            text-transform: capitalize;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            background: #a2476a;
+        }
+    </style>
 
     <script src="//unpkg.com/alpinejs" defer></script>
     <script src="https://cdn.tailwindcss.com"></script>
@@ -41,8 +52,8 @@
 
             <div class="mb-6">
                 <label for="price" class="inline-block text-lg mb-2 text-pink-900">Price</label>
-                <input type="number" step="0.01" class="border-[3px] border-pink-900 rounded-2xl p-2 w-full" name="price"
-                    value="{{ old('price') }}" />
+                <input type="number" step="0.01" class="border-[3px] border-pink-900 rounded-2xl p-2 w-full"
+                    name="price" value="{{ old('price') }}" />
 
                 @error('price')
                     <p class="text-red-500 text-xs mt-1"> {{ $message }} </p>
@@ -51,8 +62,8 @@
 
             <div class="mb-6">
                 <label for="stock" class="inline-block text-lg mb-2 text-pink-900">Product Amount</label>
-                <input type="number" step="1" class="border-[3px] border-pink-900 rounded-2xl p-2 w-full" name="stock"
-                    value="{{ old('stock') }}" />
+                <input type="number" step="1" class="border-[3px] border-pink-900 rounded-2xl p-2 w-full"
+                    name="stock" value="{{ old('stock') }}" />
 
                 @error('stock')
                     <p class="text-red-500 text-xs mt-1"> {{ $message }} </p>
@@ -85,18 +96,17 @@
             <div class="mb-6">
                 <label for="Category_ID" class="inline-block text-lg mb-2 text-pink-900">Category ID</label>
                 <input type="number" step="1" class="border-[3px] border-pink-900 rounded-2xl p-2 w-full"
-                    name="Category_ID" value="{{ old('Category_ID') }}"
-            />
+                    name="Category_ID" value="{{ old('Category_ID') }}" />
 
-            @error('Category ID')
-    <p class = " text-red-500 text-xs mt-1"> {{ $message }} </p>
+                @error('Category ID')
+                    <p class=" text-red-500 text-xs mt-1"> {{ $message }} </p>
                 @enderror
             </div>
 
             <div class="mb-6">
                 <label for="Fandom_ID" class="inline-block text-lg mb-2 text-pink-900">Fandom ID</label>
-                <input type="number" step="1" class="border-[3px] border-pink-900 rounded-2xl p-2 w-full" name="Fandom_ID"
-                    value=" {{ old('Fandom_ID') }} " />
+                <input type="number" step="1" class="border-[3px] border-pink-900 rounded-2xl p-2 w-full"
+                    name="Fandom_ID" value=" {{ old('Fandom_ID') }} " />
 
                 @error('Fandom_ID')
                     <p class="text-red-500 text-xs mt-1"> {{ $message }} </p>
@@ -105,8 +115,8 @@
 
             <div class="mb-6">
                 <label for="Seller_ID" class="inline-block text-lg mb-2 text-pink-900">Seller ID</label>
-                <input type="number" step="1" class="border-[3px] border-pink-900 rounded-2xl p-2 w-full" name="Seller_ID"
-                    value=" {{ old('Seller_ID') }} " />
+                <input type="number" step="1" class="border-[3px] border-pink-900 rounded-2xl p-2 w-full"
+                    name="Seller_ID" value=" {{ old('Seller_ID') }} " />
 
                 @error('Seller_ID')
                     <p class="text-red-500 text-xs mt-1"> {{ $message }} </p>
