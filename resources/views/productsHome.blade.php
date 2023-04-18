@@ -47,14 +47,14 @@
 
     <header class="header">
 
-        <a href="index.html" class="logo"> </i> Annyeong, <span class ="welcome-user">
-            {{auth()->user()->uname}} !
-       </span></a>
+        <a href="index.html" class="logo"> </i> Annyeong! </a>
 
         <nav class="navbar">
             <a href="#home"><i class="fa-solid fa-house"></i></a>
             @auth
-
+            <span class ="font-bold uppercase">
+                Welcome {{auth()->user()->uname}}
+            </span>
             <a href="/products/manage">dashboard</a>
             @else
             <a href="/login">login</a>
@@ -75,9 +75,7 @@
             <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras id vestibulum urna. In lobortis, magna et
                 feugiat tempus, eros elit.</p>
             <h4>₱2000.00</h4>
-            <button type="button"><a href="/products/create"> Post your own items
-
-            </a><i class="fas fa-circle-plus"></i></button>
+            <button type="button"><a href="#elect"> Explore more items! </a></button>
         </div>
 
         <img id="bp_album" src="{{ url('/images/bp_album.jpg') }}">
@@ -192,9 +190,7 @@
         <br><br>
 
         <a href="/products/create"> List Your Item </a>
-
         @endauth
-
     </div>
     </div>
 </body>

@@ -29,10 +29,20 @@
             margin-bottom: 70px;
         }
 
+        #blink_ec {
+            opacity: 0.70;
+            position: absolute;
+            width: 1280px;
+            height: 988px;
+            left: -220px;
+            top: -100px;
+            overflow: visible;
+        }
+
         .brand {
             position: relative;
             top: 310px;
-            left: -360px;
+            left: -320px;
             color: white;
             z-index: 999;
         }
@@ -102,6 +112,8 @@
 
 </head>
 
+<img id="blink_ec" src="{{url('/images/blink_ec.png')}}">
+
 <div class="temp"></div>
 
 <div class="brand">
@@ -114,7 +126,7 @@
 
     <h1 class=header1>Sign up</h1>
     <h1 class=header2>Log in</h1>
-
+   
     <div class="mb-2">
         <label for="fname" class="inline-block text-lg mb-2">
         </label>
@@ -124,7 +136,7 @@
         <p class="text-red-500 text-xs mt-1 ml-20">{{$message}}</p>
         @enderror
     </div>
-
+    
     <div class="mb-2">
         <label for="lname" class="inline-block text-lg mb-2">
         </label>
