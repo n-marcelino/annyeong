@@ -46,19 +46,26 @@
 <body>
 
     <header class="header">
-
-        <a href="index.html" class="logo"> </i> Annyeong! </a>
+        <a href="index.html" class="logo"> </i> Annyeong, </a>
+        @auth
+        <span class="welcome-user">{{ auth()->user()->uname }}!</span>
+        @endauth
 
         <nav class="navbar">
             <a href="#home"><i class="fa-solid fa-house"></i></a>
             @auth
-            <span class ="font-bold uppercase">
-                Welcome {{auth()->user()->uname}}
-            </span>
             <a href="/products/manage">dashboard</a>
+            <div class="navbar-item">
+                <form method="POST" action="/logout">
+                    @csrf
+                    <button type="submit" class="logout">
+                        <i class="fa-solid fa-right-from-bracket"></i>
+                    </button>
+                </form>
+            </div>
             @else
             <a href="/login">login</a>
-            <a href="/login">register</a>
+            <a href="/register">register</a>
             @endauth
             <a href="">About the Devs</a>
         </nav>
@@ -66,8 +73,9 @@
         <div class="icons">
             <div id="cart-btn" class="fas fa-cart-shopping"></div>
         </div>
-
     </header>
+
+
 
     <div class="container" id="home">
         <div class="hero-text">
@@ -75,7 +83,7 @@
             <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras id vestibulum urna. In lobortis, magna et
                 feugiat tempus, eros elit.</p>
             <h4>₱2000.00</h4>
-            <button type="button"><a href="#elect"> Explore more items! </a></button>
+            <button type="button"><a href="/products/create"> Sell your own items <i class="fa-solid fa-circle-plus"></i> </a></button>
         </div>
 
         <img id="bp_album" src="{{ url('/images/bp_album.jpg') }}">
@@ -149,7 +157,7 @@
                     @foreach ($products as $product)
                         <div class="product-container">
                             <div class="product-description">
-                                <img class="w-48 mr-6 mb-6" src="{{$product->photo ? asset('storage/' . $product->photo) : asset('/images/no-image.png')}}" alt=""/>
+                                <img class="product-image" src="{{$product->photo ? asset('storage/' . $product->photo) : asset('/images/no-image.png')}}" alt=""/>
                                 <h2 class="text-pink-800 text-lg font-semibold mt-6 ml-4 ">
                                     <a href="/products/{{ $product['id'] }}">{{ $product['name'] }}
                                 </h2>
@@ -179,18 +187,7 @@
 
         </div>
 
-        <form method="POST" action="/logout">
-            @csrf
-            @auth
-            <button type="submit">
-                Logout
-            </button>
-        </form>
 
-        <br><br>
-
-        <a href="/products/create"> List Your Item </a>
-        @endauth
     </div>
     </div>
 </body>

@@ -1,0 +1,40 @@
+*{
+    text-transform: capitalize;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body{
+    background: #a2476a;
+}
+
+#form-container {
+    float: right;
+    position: relative;
+    top: -130px;
+    right: 90px;
+    background: white;
+    border-radius: 25px;
+    width: 40%;
+    z-index: 9999;
+}
+
+.header1,
+.header2 {
+    position: relative;
+    top: 50px;
+    left: 98px;
+    text-align: center;
+    display: inline;
+    font-size: 45px;
+}
+
+.header1 {
+    margin-left: 4px;
+    margin-right: 70px;
+    font-weight: bold;
+    color: #a2476a;
+}
+
+.header2 {
+    color: #CDCDCD;
+}
