@@ -11,6 +11,7 @@
 <p class="text-center">
     {{$product['description']}}
 </p>
+@auth
 <a href="/products/{{$product -> id}}/edit">
     Edit
 </a>
@@ -19,6 +20,7 @@
     @csrf
     @method('DELETE')
     <button>Delete</button>
+    @endauth
 </form>
 <a href="/" class="text-black ml-4"> Back </a>
 

@@ -181,6 +181,7 @@
 
         <form method="POST" action="/logout">
             @csrf
+            @auth
             <button type="submit">
                 Logout
             </button>
@@ -189,7 +190,7 @@
         <br><br>
 
         <a href="/products/create"> List Your Item </a>
-
+        @endauth
     </div>
     </div>
 </body>
