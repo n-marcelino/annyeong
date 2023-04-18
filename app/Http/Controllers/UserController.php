@@ -20,9 +20,9 @@ class UserController extends Controller
     //create new user
     public function store(Request $request) {
         $formFields = $request->validate([
-            'fname' => ['required', 'min:2'], 
-            'lname' => ['required', 'min:2'], 
-            'uname' => ['required', 'min:3'], 
+            'fname' => ['required', 'min:2'],
+            'lname' => ['required', 'min:2'],
+            'uname' => ['required', 'min:3'],
             'birthday' => ['required', 'min:10'],
             'contact' => ['required', 'min:11'],
             'street' => ['required'],
@@ -35,7 +35,7 @@ class UserController extends Controller
         //encrypt password
         $formFields['password'] = bcrypt($formFields['password']);
 
-        //create user 
+        //create user
         $user = User::create($formFields);
 
         auth()->login($user);
@@ -55,9 +55,9 @@ class UserController extends Controller
 
             return redirect('/')->with('message', 'Logged In');
         }
-        return back();
-    
-    } 
+        return back()->withErrors(['email'=>'Invalid Credentials!'])->onlyInput('email');
+
+    }
 
     //log out user
     public function logout(Request $request){

@@ -1,4 +1,4 @@
-*{
+* {
     text-transform: capitalize;
     overflow-x: hidden;
 }
@@ -15,85 +15,85 @@
     display: -ms-flexbox;
     display: flex;
     -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-  }
+    -ms-flex-align: center;
+    align-items: center;
+}
 
-  .header.active {
+.header.active {
     background: #101522;
     -webkit-box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
-            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
-  }
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+}
 
-  .header .logo {
+.header .logo {
     margin-right: auto;
     font-size: 20px;
     color: #ffffff;
     font-weight: bolder;
-  }
+}
 
-  .header .logo i {
+.header .logo i {
     color: #ffffff;
-  }
+}
 
-  .header .navbar a {
+.header .navbar a {
     margin-left: 2rem;
     font-size: 17px;
     color: #fff;
-  }
+}
 
-  .header .navbar a:hover {
+.header .navbar a:hover {
     color: #803753;
-  }
+}
 
-  .header .navbar #nav-close {
+.header .navbar #nav-close {
     font-size: 5rem;
     cursor: pointer;
     color: #101522;
     display: none;
-  }
+}
 
-  .header .icons a,
-  .header .icons div {
+.header .icons a,
+.header .icons div {
     font-size: 17px;
     margin-left: 2rem;
     cursor: pointer;
     color: #fff;
-  }
+}
 
-  .header .icons a:hover,
-  .header .icons div:hover {
+.header .icons a:hover,
+.header .icons div:hover {
     color: #803753;
-  }
+}
 
-  .header #menu-btn {
+.header #menu-btn {
     display: none;
-  }
+}
 
-  .container{
+.container {
     margin-top: 190px;
     margin-left: 150px;
 }
 
-.container .hero-text{
+.container .hero-text {
     margin-bottom: 40px;
 }
 
-.container .hero-text h3{
+.container .hero-text h3 {
     color: #A2A2A2;
     font-weight: 200;
     font-size: 60px;
 }
 
-.container .hero-text h4{
+.container .hero-text h4 {
     color: #595959;
     font-weight: 200;
     font-size: 22px;
     margin-bottom: 25px;
 }
 
-.container .hero-text p{
-    width: 600px;
+.container .hero-text p {
+    width: 500px;
     max-width: 100%;
     color: #A2A2A2;
     font-size: 17px;
@@ -102,32 +102,44 @@
     margin-bottom: 15px;
 }
 
-.container .hero-text button{
+.container .hero-text button {
 
     background: #a2476a;
     border: 2px solid #a2476a;
     font-size: 16px;
     font-weight: 500;
     line-height: 24px;
-    padding: 20px ;
-    cursor: pointer ;
+    padding: 20px;
+    cursor: pointer;
 }
 
-.container .hero-text button a{
+.container .hero-text button a {
     color: #eee;
 }
 
-.container .hero-text button:hover{
+.container .hero-text button i {
+    color: #eee;
+    font-size: 17px;
+    margin-left: 5px;
+    margin-top: auto;
+    cursor: pointer;
+}
+
+.container .hero-text button:hover i{
+    color: #a2476a;
+}
+
+.container .hero-text button:hover {
     background: transparent;
     border: 2px solid #a2476a;
     transition: .4s;
 }
 
-.container .hero-text button:hover a{
+.container .hero-text button:hover a {
     color: #a2476a;
 }
 
-#bp_album{
+#bp_album {
     position: absolute;
     left: 800px;
     top: 100px;
@@ -135,12 +147,12 @@
     height: 500px;
 }
 
-.main-body{
+.main-body {
     margin-top: 100px;
     background: #EDEDED;
 }
 
-.main-body-container{
+.main-body-container {
     margin-top: 15px;
     margin-left: auto;
     margin-right: auto;
@@ -148,35 +160,35 @@
     background: #ffffff;
 }
 
-.align-divs{
+.align-divs {
     width: 100%;
     height: 100%;
     display: flex;
     flex-direction: row;
 }
 
-.filter{
+.filter {
     margin-left: 16px;
     padding: 20px;
     background: #EDEDED;
     width: 20%;
 }
 
-.filter h1{
+.filter h1 {
     margin-top: 20px;
 }
 
-.categ-form{
+.categ-form {
     margin-top: 10px;
     margin-left: 15px;
 }
 
-.categ-form h1{
+.categ-form h1 {
     font-size: larger;
     margin-bottom: 15px;
 }
 
-.align-container{
+.align-container {
     display: inline-flex;
     flex-wrap: wrap;
 }
@@ -194,7 +206,7 @@
     margin-right: 10px;
 }
 
-.product-image{
+.product-image {
     margin-left: auto;
     margin-right: auto;
     margin-top: 10px;
@@ -204,3 +216,8 @@
     width: 195px;
 }
 
+.welcome-user{
+    margin-left: 2px;
+    font-size: 20px;
+    color: #ffffff;
+}

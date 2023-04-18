@@ -29,20 +29,10 @@
             margin-bottom: 70px;
         }
 
-        #blink_ec {
-            opacity: 0.70;
-            position: absolute;
-            width: 1280px;
-            height: 988px;
-            left: -220px;
-            top: -100px;
-            overflow: visible;
-        }
-
         .brand{
             position: relative;
             top: 310px;
-            left: -20px;
+            left: -70px;
             color: white;
             z-index:999;
         }
@@ -115,7 +105,7 @@
 <form method="POST" action="/users/authenticate">
     @csrf
 
-    <img id="blink_ec" src="{{url('/images/blink_ec.png')}}">
+
 
     <div class="temp"></div>
     <div class="form-container">
