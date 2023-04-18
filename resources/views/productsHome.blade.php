@@ -58,7 +58,7 @@
             <a href="/products/manage">dashboard</a>
             @else
             <a href="/login">login</a>
-            <a href="/login">register</a>
+            <a href="/register">register</a>
             @endauth
             <a href="">About the Devs</a>
         </nav>

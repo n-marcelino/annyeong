@@ -37,6 +37,8 @@ class ProductsController extends Controller
             $formFields['photo'] = $request->file('photo')->store('photos', 'public');
         }
 
+        $formFields['user_id'] = auth()->id();
+
         Product::create($formFields);
 
         return redirect('/');
@@ -65,6 +67,8 @@ class ProductsController extends Controller
         if($request->hasFile('photo')) {
             $formFields['photo'] = $request->file('photo')->store('photos', 'public');
         }
+
+        $formFields['user_id'] = auth()->id();
 
         $product->update($formFields);
 
