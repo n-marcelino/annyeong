@@ -1,0 +1,163 @@
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 1rem 9%;
+    z-index: 1000;
+    background: #a2476a;
+    display: flex;
+    align-items: center;
+}
+
+.header.active {
+    background: #101522;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+}
+
+.header .logo {
+    margin-right: auto;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    font-size: 20px;
+    color: #ffffff;
+    font-weight: bolder;
+}
+
+.header .navbar {
+    display: flex;
+    align-items: center;
+}
+
+.header .navbar a {
+    margin-left: 10px;
+    font-size: 15px;
+    color: #fff;
+}
+
+.header .navbar a:hover {
+    color: #803753;
+}
+
+.header .icons a,
+.header .icons div {
+    font-size: 15px;
+    margin-left: 15px;
+    margin-top: 6px;
+    cursor: pointer;
+    color: #fff;
+}
+
+.header .icons a:hover,
+.header .icons div:hover {
+    color: #803753;
+}
+.navbar-item {
+    display: inline-block;
+    margin-left: 1rem;
+}
+
+.navbar-item .logout {
+    background: none;
+    border: none;
+    padding: 0;
+    margin-top: 0px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    color: #fff;
+}
+
+.navbar-item .logout a {
+    color: #fff;
+}
+
+.navbar-item .logout:hover {
+    color: #803753;
+}
+
+.container{
+    margin-top: 220px;
+    margin-bottom: 50px;
+    margin-left: 150px;
+}
+
+.container .hero-text{
+    margin-bottom: 40px;
+}
+
+.container .hero-text h3{
+    color: #A2A2A2;
+    font-weight: 200;
+    font-size: 60px;
+}
+
+.container .hero-text h4{
+    color: #595959;
+    font-weight: 200;
+    font-size: 22px;
+    margin-bottom: 25px;
+}
+
+.container .hero-text p{
+    width: 600px;
+    max-width: 100%;
+    color: #A2A2A2;
+    font-size: 17px;
+    line-height: 1.5;
+    margin-top: 5px;
+    margin-bottom: 15px;
+}
+
+.container .hero-text button{
+
+    background: #a2476a;
+    border: 2px solid #a2476a;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 24px;
+    padding: 20px ;
+    cursor: pointer ;
+}
+
+.container .hero-text button a{
+    color: #eee;
+}
+
+.container .hero-text button i{
+    font-size: 17px;
+    color: #eee;
+    margin-left: 10px;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.container .hero-text button:hover{
+    background: transparent;
+    border: 2px solid #a2476a;
+    transition: .4s;
+}
+
+.container .hero-text button:hover a{
+    color: #a2476a;
+}
+
+.container .hero-text button:hover i{
+    color: #a2476a;
+}
+
+#bp_album{
+    position: absolute;
+    left: 800px;
+    top: 100px;
+    width: 500px;
+    height: 500px;
+}
+
+
+.welcome-user{
+    margin-right: 732px;
+    font-weight: bolder;
+    font-size: 20px;
+    color: #ffffff;
+}

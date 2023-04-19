@@ -23,7 +23,7 @@
         }
 
         body {
-            background: #a2476a;
+            background: #ffffff;
         }
     </style>
 
@@ -32,31 +32,51 @@
 </head>
 
 <body>
-<img class="w-48 mr-6 mb-6"
-    src="{{ $product->photo ? asset('storage/' . $product->photo) : asset('/images/no-image.png') }}" alt="" />
-<h2 class="text-center">
-    {{ $product['name'] }}
-</h2>
-<p class="text-center">
-    {{ $product['price'] }}
-</p>
-<p class="text-center">
-    In-stock: {{ $product['stock'] }}
-</p>
-<p class="text-center">
-    {{ $product['description'] }}
-</p>
-@auth
-    <a href="/products/{{ $product->id }}/edit">
-        Edit
-    </a>
-    <br>
-    <form method="POST" action="/products/{{ $product->id }}">
-        @csrf
-        @method('DELETE')
-        <button>Delete</button>
-    @endauth
-</form>
+
+    <header class="header">
+        <a href="index.html" class="logo"> </i> Annyeong </a>
+        @auth
+        <span class="welcome-user">, {{ auth()->user()->uname }}!</span>
+        @endauth
+
+        <nav class="navbar">
+            <a href="#home"><i class="fa-solid fa-house"></i></a>
+            @auth
+            <a href="/products/manage">dashboard</a>
+            <div class="navbar-item">
+                <form method="POST" action="/logout">
+                    @csrf
+                    <button type="submit" class="logout">
+                        <i class="fa-solid fa-right-from-bracket"></i>
+                    </button>
+                </form>
+            </div>
+            @else
+            <a href="/login">login</a>
+            <a href="/register">register</a>
+            @endauth
+            <a href="">About the Devs</a>
+        </nav>
+
+        <div class="icons">
+            <div id="cart-btn" class="fas fa-cart-shopping"></div>
+        </div>
+    </header>
+
+    <div class="container" id="home">
+        <div class="hero-text">
+            <h3>{{ $product['name'] }}</h3>
+            <p> {{ $product['description'] }}</p>
+            <h4>{{ $product['price'] }}</h4>
+            <br>
+            <h4>In-stock: {{ $product['stock'] }}</h4>
+            <button type="button"><a href="/products/create"> Sell your own items <i class="fa-solid fa-circle-plus"></i> </a></button>
+        </div>
+
+        <img id="bp_album" src="{{ $product->photo ? asset('storage/' . $product->photo) : asset('/images/no-image.png') }}" alt="">
+    </div>
+
+
 <a href="/" class="text-black ml-4"> Back </a>
 </body>
 </html>
