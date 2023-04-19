@@ -64,12 +64,13 @@
     </header>
 
     <div class="container" id="home">
+        <button type="button" class="back-button"><i class="fa-solid fa-arrow-left"></i> <a href="/"> Back </a></button>
         <div class="hero-text">
             <h3>{{ $product['name'] }}</h3>
             <p> {{ $product['description'] }}</p>
-            <h4>{{ $product['price'] }}</h4>
-            <br>
-            <h4>In-stock: {{ $product['stock'] }}</h4>
+            <h4>₱ {{ $product['price'] }}</h4>
+
+            <h4 id="stock">In-stock: {{ $product['stock'] }}</h4><br>
             <button type="button"><a href="/products/create"> Add to cart <i class="fa-solid fa-cart-plus"></i> </a></button>
         </div>
 
@@ -77,6 +78,6 @@
     </div>
 
 
-<a href="/" class="text-black ml-4"> Back </a>
+
 </body>
 </html>
