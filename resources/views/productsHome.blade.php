@@ -46,9 +46,9 @@
 <body>
 
     <header class="header">
-        <a href="index.html" class="logo"> </i> Annyeong, </a>
+        <a href="index.html" class="logo"> </i> Annyeong </a>
         @auth
-        <span class="welcome-user">{{ auth()->user()->uname }}!</span>
+        <span class="welcome-user">, {{ auth()->user()->uname }}!</span>
         @endauth
 
         <nav class="navbar">

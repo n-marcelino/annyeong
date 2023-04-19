@@ -72,7 +72,7 @@ class ProductsController extends Controller
 
         $product->update($formFields);
 
-        return back();
+        return redirect('/');
 
 
     }

@@ -1,3 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="preconnect" href="https://fonts.bunny.net">
+    <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
+    <link rel="icon" href="images/favicon.ico" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <title>Edit Item Form</title>
+
+    <style>
+        * {
+            text-transform: capitalize;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            background: #a2476a;
+        }
+    </style>
+
+    <script src="//unpkg.com/alpinejs" defer></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
 <div
 class="bg-gray-50 border border-gray-200 p-10 rounded max-w-lg mx-auto mt-24"
 >
@@ -88,7 +119,7 @@ class="bg-gray-50 border border-gray-200 p-10 rounded max-w-lg mx-auto mt-24"
         <textarea
             class="border border-gray-200 rounded p-2 w-full"
             name="description"
-            
+
             rows="10"
             placeholder="Give as much relevant information about the product as you can."
         >{{$product->description}}</textarea>
@@ -145,12 +176,14 @@ class="bg-gray-50 border border-gray-200 p-10 rounded max-w-lg mx-auto mt-24"
 
     <div class="mb-6">
         <button
-            class="bg-laravel text-white rounded py-2 px-4 hover:bg-black"
+            class="bg-pink-900 text-white rounded py-2 px-4 hover:bg-pink-950"
         >
-            Post
+            Edit
         </button>
 
         <a href="/" class="text-black ml-4"> Back </a>
     </div>
 </form>
 </div>
+</body>
+</html>
