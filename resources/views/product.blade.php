@@ -70,7 +70,7 @@
             <h4>{{ $product['price'] }}</h4>
             <br>
             <h4>In-stock: {{ $product['stock'] }}</h4>
-            <button type="button"><a href="/products/create"> Sell your own items <i class="fa-solid fa-circle-plus"></i> </a></button>
+            <button type="button"><a href="/products/create"> Add to cart <i class="fa-solid fa-cart-plus"></i> </a></button>
         </div>
 
         <img id="bp_album" src="{{ $product->photo ? asset('storage/' . $product->photo) : asset('/images/no-image.png') }}" alt="">
