@@ -157,7 +157,7 @@
                     @foreach ($products as $product)
                         <div class="product-container">
                             <div class="product-description">
-                                <img class="product-image" src="{{$product->photo ? asset('storage/' . $product->photo) : asset('/images/no-image.png')}}" alt=""/>
+                                <img src="{{$product->photo ? asset('storage/' . $product->logo) : asset('/images/no-image.png')}}" alt="" />
                                 <h2 class="text-pink-800 text-lg font-semibold mt-6 ml-4 ">
                                     <a href="/products/{{ $product['id'] }}">{{ $product['name'] }}
                                 </h2>
