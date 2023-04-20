@@ -13,57 +13,62 @@
     background: #a2476a;
     display: flex;
     align-items: center;
-}
+  }
 
-.header.active {
+  .header.active {
     background: #101522;
     box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
-}
+  }
 
-.header .logo {
+  .header .logo {
     margin-right: auto;
     padding-top: 5px;
     padding-bottom: 5px;
     font-size: 20px;
     color: #ffffff;
     font-weight: bolder;
-}
+  }
 
-.header .navbar {
+  .header .navbar {
     display: flex;
     align-items: center;
-}
+  }
 
-.header .navbar a {
+  .header .navbar a {
     margin-left: 10px;
     font-size: 15px;
     color: #fff;
-}
+  }
 
-.header .navbar a:hover {
+  .header .navbar a:hover {
     color: #803753;
-}
+  }
 
-.header .icons a,
-.header .icons div {
+  .header-right {
+    display: flex;
+    align-items: center;
+  }
+
+  .header-right .icons a,
+  .header-right .icons div {
     font-size: 15px;
     margin-left: 15px;
     margin-top: 6px;
     cursor: pointer;
     color: #fff;
-}
+  }
 
-.header .icons a:hover,
-.header .icons div:hover {
+  .header-right .icons a:hover,
+  .header-right .icons div:hover {
     color: #803753;
-}
+  }
 
-.navbar-item {
+  .navbar-item {
     display: inline-block;
     margin-left: 1rem;
-}
+  }
 
-.navbar-item .logout {
+  .navbar-item .logout {
     background: none;
     border: none;
     padding: 0;
@@ -72,15 +77,16 @@
     display: flex;
     align-items: center;
     color: #fff;
-}
+  }
 
-.navbar-item .logout a {
+  .navbar-item .logout a {
     color: #fff;
-}
+  }
 
-.navbar-item .logout:hover {
+  .navbar-item .logout:hover {
     color: #803753;
-}
+  }
+
 
 
 .container{
@@ -183,13 +189,21 @@
 
 .filter{
     margin-left: 16px;
+    margin-right: 25px;
     padding: 20px;
     background: #EDEDED;
-    width: 20%;
+    height: 1600px;
+    width: 25%;
+    display: flex;
+    flex-wrap: wrap;
 }
 
-.filter h1{
-    margin-top: 20px;
+.filter h1 {
+    margin-top: 10px;
+}
+
+#title{
+    margin-bottom: 50px;
 }
 
 .categ-form{
@@ -198,8 +212,9 @@
 }
 
 .categ-form h1{
-    font-size: larger;
+    font-size: 18px;
     margin-bottom: 15px;
+    margin-top: 15px;
 }
 
 .align-container {
@@ -208,6 +223,7 @@
     justify-content: center;
     overflow: hidden;
     padding-right: 40px;
+    width: 800px;
 }
 
 .product-container {
@@ -220,8 +236,8 @@
     margin-top: 40px;
     margin-bottom: 40px;
     margin-left: 50px;
-    margin-right: 10px;
 }
+
 
 
 .product-container::after {
@@ -240,7 +256,7 @@
     margin-right: auto;
     margin-top: 10px;
     margin-bottom: 10px;
-    height: 160px;
+    height: 190px;
     width: 195px;
 }
 
@@ -249,5 +265,10 @@
     font-weight: bolder;
     font-size: 20px;
     color: #ffffff;
+}
+
+.tag{
+    color: #a2476a;
+    margin-bottom: -15px;
 }
 

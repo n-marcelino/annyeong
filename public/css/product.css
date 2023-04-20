@@ -1,3 +1,12 @@
+*{
+    font-family: Arial, Helvetica, sans-serif;
+    text-transform: capitalize;
+}
+
+body{
+    background: #ffffff;
+}
+
 .header {
     position: fixed;
     top: 0;
@@ -8,56 +17,62 @@
     background: #a2476a;
     display: flex;
     align-items: center;
-}
+  }
 
-.header.active {
+  .header.active {
     background: #101522;
     box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
-}
+  }
 
-.header .logo {
+  .header .logo {
     margin-right: auto;
     padding-top: 5px;
     padding-bottom: 5px;
     font-size: 20px;
     color: #ffffff;
     font-weight: bolder;
-}
+  }
 
-.header .navbar {
+  .header .navbar {
     display: flex;
     align-items: center;
-}
+  }
 
-.header .navbar a {
+  .header .navbar a {
     margin-left: 10px;
     font-size: 15px;
     color: #fff;
-}
+  }
 
-.header .navbar a:hover {
+  .header .navbar a:hover {
     color: #803753;
-}
+  }
 
-.header .icons a,
-.header .icons div {
+  .header-right {
+    display: flex;
+    align-items: center;
+  }
+
+  .header-right .icons a,
+  .header-right .icons div {
     font-size: 15px;
     margin-left: 15px;
     margin-top: 6px;
     cursor: pointer;
     color: #fff;
-}
+  }
 
-.header .icons a:hover,
-.header .icons div:hover {
+  .header-right .icons a:hover,
+  .header-right .icons div:hover {
     color: #803753;
-}
-.navbar-item {
+  }
+
+  .navbar-item {
     display: inline-block;
     margin-left: 1rem;
-}
+  }
 
-.navbar-item .logout {
+  .navbar-item .logout {
     background: none;
     border: none;
     padding: 0;
@@ -66,15 +81,16 @@
     display: flex;
     align-items: center;
     color: #fff;
-}
+  }
 
-.navbar-item .logout a {
+  .navbar-item .logout a {
     color: #fff;
-}
+  }
 
-.navbar-item .logout:hover {
+  .navbar-item .logout:hover {
     color: #803753;
-}
+  }
+
 
 .container{
     margin-top: 220px;
@@ -82,47 +98,44 @@
     margin-left: 150px;
 }
 
-.container .back-button{
+.back-button {
+    display: inline-block;
     position: absolute;
-    left: 40px;
-    top: 100px;
-    padding: 10px;
+    top: 90px;
+    left: 20px;
     background: #a2476a;
-}
-
-.back-button a{
-    margin-left: 3px;
-    margin-right: 15px;
     color: #ffffff;
     border: 2px solid #a2476a;
+    padding: 10px 25px;
+    text-decoration: none;
 }
 
-.back-button i{
+.back-button i {
     color: #ffffff;
-    margin-left: 20px;
+    margin-left: 1px;
+    margin-right: 5px;
     font-size: 15px;
 }
 
-.container .back-button button:hover{
+.back-button:hover {
     background: white;
     border: 2px solid #a2476a;
     transition: .4s;
 }
 
-.container .back-button button:hover a{
+.back-button:hover i,
+.back-button:hover {
     color: #a2476a;
 }
-
-.container .back-button button:hover i{
-    color: #a2476a;
-}
-
 
 .container .hero-text{
     margin-bottom: 40px;
+    margin-left: 50px;
+    padding-top: 50px;
 }
 
 .container .hero-text h3{
+    max-width: 800px;
     margin-left: -13px;
     color: #a2476a;
     font-weight: 200;
@@ -188,17 +201,16 @@
     color: #a2476a;
 }
 
-#bp_album{
+#product-photo{
     position: absolute;
-    left: 800px;
-    top: 160px;
+    left: 850px;
+    top: 180px;
     width: 500px;
     height: 500px;
 }
 
-
 .welcome-user{
-    margin-right: 732px;
+    margin-right: 728px;
     font-weight: bolder;
     font-size: 20px;
     color: #ffffff;

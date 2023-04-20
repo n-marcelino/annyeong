@@ -61,7 +61,7 @@
             </div>
 
             <div class="mb-6">
-                <label for="stock" class="inline-block text-lg mb-2 text-pink-900">Product Amount</label>
+                <label for="stock" class="inline-block text-lg mb-2 text-pink-900">Quantity</label>
                 <input type="number" step="1" class="border-[3px] border-pink-900 rounded-2xl p-2 w-full"
                     name="stock" value="{{ old('stock') }}" />
 

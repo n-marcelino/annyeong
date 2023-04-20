@@ -25,60 +25,49 @@
 
     <script src="//unpkg.com/alpinejs" defer></script>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        main: "#2B3F81",
-                        hover: "#3C6DD0",
-                        form: "#EEF4FF",
-                        input: "#DCE4F4",
-                        text: "AEAEAE"
-                    },
-                },
-            },
-        };
-    </script>
 
 </head>
 
 <body>
 
     <header class="header">
-        <a href="index.html" class="logo"> </i> Annyeong </a>
+        <a href="/" class="logo">Annyeong</a>
         @auth
         <span class="welcome-user">, {{ auth()->user()->uname }}!</span>
         @endauth
-
-        <nav class="navbar">
-            <a href="#home"><i class="fa-solid fa-house"></i></a>
+        <div class="header-right">
+          <nav class="navbar">
+            <a href="/"><i class="fa-solid fa-house"></i></a>
             @auth
             <a href="/products/manage">dashboard</a>
-            <div class="navbar-item">
-                <form method="POST" action="/logout">
-                    @csrf
-                    <button type="submit" class="logout">
-                        <i class="fa-solid fa-right-from-bracket"></i>
-                    </button>
-                </form>
-            </div>
             @else
             <a href="/login">login</a>
             <a href="/register">register</a>
             @endauth
             <a href="">About the Devs</a>
-        </nav>
-
-        <div class="icons">
+          </nav>
+          <div class="icons">
             <div id="cart-btn" class="fas fa-cart-shopping"></div>
+            @auth
+            <div class="navbar-item">
+              <form method="POST" action="/logout">
+                @csrf
+                <button type="submit" class="logout">
+                  <i class="fa-solid fa-right-from-bracket"></i>
+                </button>
+              </form>
+            </div>
+            @endauth
+          </div>
         </div>
-    </header>
+      </header>
+
 
 
 
     <div class="container" id="home">
         <div class="hero-text">
+            <h5 class="tag"><i>Today's featured items</i></h5>
             <h3>Blackpink The Album</h3>
             <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras id vestibulum urna. In lobortis, magna et
                 feugiat tempus, eros elit.</p>
@@ -96,9 +85,9 @@
             <div class="align-divs">
                 <div class="filter">
 
-                <h1 class="text-pink-900"> <i class="fa-solid fa-filter text-pink-900"></i> Search Filter</h1>
                 <div class="categ-form">
-                <h1><b>Category</b></h1>
+                <h1 class="text-pink-900" id="title"> <i class="fa-solid fa-filter text-pink-900"></i> Search Filter</h1>
+                <h1 class="heading"><b>Category</b></h1>
                 <form action="/">
                     <input type="checkbox" value="Clothing">
                     <label for="Clothing" style="font-size: 14px;"> Clothing</label><br>
@@ -113,7 +102,7 @@
                     <label for="Photocard" style="font-size: 14px;"> Photocard</label><br>
                   </form>
 
-                  <h1><b>Fandom</b></h1>
+                  <h1 class="heading2"><b>Fandom</b></h1>
                   <form action="/">
                     <input type="checkbox" value="Blink">
                     <label for="Blink" style="font-size: 14px;"> Blink</label><br>
@@ -134,7 +123,7 @@
                     <label for="Fearnot" style="font-size: 14px;"> Fearnot</label><br>
                   </form>
 
-                  <h1><b>Price</b></h1>
+                  <h1 class="heading3"><b>Price</b></h1>
                   <form action="/">
                     <input type="checkbox" value="lowest">
                     <label for="lowest" style="font-size: 14px;"> Less than ₱100 </label><br>
@@ -157,7 +146,7 @@
                     @foreach ($products as $product)
                         <div class="product-container">
                             <div class="product-description">
-                                <img src="{{$product->photo ? asset('storage/' . $product->logo) : asset('/images/no-image.png')}}" alt="" />
+                                <img class="product-image"src="{{$product->photo ? asset('storage/' . $product->logo) : asset('/images/no-image.png')}}" alt="" />
                                 <h2 class="text-pink-800 text-lg font-semibold mt-6 ml-4 ">
                                     <a href="/products/{{ $product['id'] }}">{{ $product['name'] }}
                                 </h2>
@@ -181,7 +170,7 @@
             </div>
 
             <!--paginate page-->
-            <div class="mt-6 p-4">
+            <div class="mt-2 p-4">
                 {{$products->links()}}
             </div>
 

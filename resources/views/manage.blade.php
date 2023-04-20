@@ -12,6 +12,7 @@
         integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
+    <link rel="stylesheet" href="{{ url('css/manage.css') }}">
 
     <script src="//unpkg.com/alpinejs" defer></script>
     <script src="https://cdn.tailwindcss.com"></script>
@@ -22,27 +23,27 @@
 <body>
     <div class="container">
     <header>
-        <h1 class="text-3xl text-center font-bold my-6 uppercase">
+        <h1 class="text-3xl text-center font-bold text-pink-900 my-6 uppercase">
             Seller's Dashboard
         </h1>
     </header>
 
-    <table class="w-full table-auto rounded-sm">
+    <table class="w-full table-auto rounded-sm mt-28 mb-40">
         <tbody>
             @unless ($products->isEmpty())
                 @foreach ($products as $product)
                     <tr class="border-gray-300">
-                        <td class="px-4 py-8 border-t border-b text-lg">
+                        <td class="px-2 py-6 border-t border-b text-base">
                             <a href="/products/{{ $product->id }}">
                                 {{ $product->name }}
                             </a>
                         </td>
-                        <td class="px-4 py-8 border-t border-b border-gray-300 text-lg">
+                        <td class="px-2 py-6 border-t border-b border-gray-300 text-base">
                             <a href="/products/{{ $product->id }}/edit" class="text-blue-400 px-6 py-2 rounded-xl"><i
                                     class="fa-solid fa-pen-to-square"></i>
                                 Edit</a>
                         </td>
-                        <td class="px-4 py-8 border-t border-b border-gray-300 text-lg">
+                        <td class="px-2 py-6 border-t border-b border-gray-300 text-base">
 
                             <form method="POST" action="/products/{{ $product->id }}">
                                 @csrf
@@ -55,7 +56,7 @@
                 @endforeach
             @else
                 <tr class="border-gray-300">
-                    <td class="px-4 py-8 border-t border-b border-gray-300 text-lg">
+                    <td class="px-2 py-6 border-t border-b border-gray-300 text-base">
                         <p class="text-center">You don't have any posts yet.</p>
                     </td>
                 </tr>
@@ -63,6 +64,8 @@
 
         </tbody>
     </table>
+
+    <a href="/" class="back-button"><i class="fa-solid fa-arrow-left"></i> Back</a>
     </div>
 </body>
 
