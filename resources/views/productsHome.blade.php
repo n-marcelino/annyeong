@@ -156,6 +156,12 @@
                                 <p class="ml-4 text-xs text-emerald-600">
                                     In-stock: {{ $product['stock'] }}
                                 </p>
+                                <p class="ml-4 text-xs text-emerald-600">
+                                  Category: {{ $product['category'] }}
+                              </p>
+                              <p class="ml-4 text-xs text-emerald-600">
+                                Fandom: {{ $product['fandom'] }}
+                            </p>
                                 <p class="mt-2 ml-4 mr-4 text-sm italic ">
                                     {{ $product['description'] }}
                                 </p>

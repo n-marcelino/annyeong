@@ -97,32 +97,22 @@
             </div>
 
             <div class="mb-6">
-                <label for="Category_ID" class="inline-block text-lg mb-2">Category ID</label>
-                <input type="number" step="1" class="border border-gray-200 rounded p-2 w-full"
-                    name="Category_ID" value="{{ $product->Category_ID }}""
+                <label for="category" class="inline-block text-lg mb-2">Category</label>
+                <input type="text" step="1" class="border border-gray-200 rounded p-2 w-full"
+                    name="category" value="{{ $product->category }}""
         />
 
-        @error('Category ID')
+        @error('category')
     <p class = " text-red-500 text-xs mt-1"> {{ $message }} </p>
                 @enderror
             </div>
 
             <div class="mb-6">
-                <label for="Fandom_ID" class="inline-block text-lg mb-2">Fandom ID</label>
-                <input type="number" step="1" class="border border-gray-200 rounded p-2 w-full" name="Fandom_ID"
-                    value="{{ $product->Fandom_ID }}" />
+                <label for="fandom" class="inline-block text-lg mb-2">Fandom</label>
+                <input type="text" step="1" class="border border-gray-200 rounded p-2 w-full" name="fandom"
+                    value="{{ $product->fandom }}" />
 
-                @error('Fandom_ID')
-                    <p class="text-red-500 text-xs mt-1"> {{ $message }} </p>
-                @enderror
-            </div>
-
-            <div class="mb-6">
-                <label for="Seller_ID" class="inline-block text-lg mb-2">Seller ID</label>
-                <input type="number" step="1" class="border border-gray-200 rounded p-2 w-full" name="Seller_ID"
-                    value="{{ $product->Seller_ID }}" />
-
-                @error('Seller_ID')
+                @error('fandom')
                     <p class="text-red-500 text-xs mt-1"> {{ $message }} </p>
                 @enderror
             </div>

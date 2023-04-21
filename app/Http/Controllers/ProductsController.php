@@ -28,9 +28,8 @@ class ProductsController extends Controller
             'price' => 'required',
             'stock' => 'required',
             'description' => 'required',
-            'Category_ID' => 'required',
-            'Fandom_ID' => 'required',
-            'Seller_ID' => 'required'
+            'category' => 'required',
+            'fandom' => 'required'
         ]);
 
         if($request->hasFile('photo')) {
@@ -59,9 +58,8 @@ class ProductsController extends Controller
             'price' => 'required',
             'stock' => 'required',
             'description' => 'required',
-            'Category_ID' => 'required',
-            'Fandom_ID' => 'required',
-            'Seller_ID' => 'required'
+            'category' => 'required',
+            'fandom' => 'required'
         ]);
 
         if($request->hasFile('photo')) {

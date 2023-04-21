@@ -9,12 +9,14 @@ class Product extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name', 'price', 'user_id', 'stock', 'description', 'photo', 'Category_ID', 'Fandom_ID', 'Seller_ID'];
+    protected $fillable = ['name', 'price', 'user_id', 'stock', 'description', 'photo', 'category', 'fandom'];
 
     public function scopeFilter($query, array $filters)
     {
         if($filters['search'] ?? false) {
-            $query -> where('name' , 'like', '%' . request('search') . '%');
+            $query -> where('name' , 'like', '%' . request('search') . '%')
+            ->orWhere('category', 'like', '%' . request('search') . '%')
+            ->orWhere('fandom', 'like', '%' . request('search') . '%');
         }
     }
      //relationship to user

@@ -94,31 +94,21 @@
             </div>
 
             <div class="mb-6">
-                <label for="Category_ID" class="inline-block text-lg mb-2 text-pink-900">Category ID</label>
-                <input type="number" step="1" class="border-[3px] border-pink-900 rounded-2xl p-2 w-full"
-                    name="Category_ID" value="{{ old('Category_ID') }}" />
+                <label for="category" class="inline-block text-lg mb-2 text-pink-900">Category</label>
+                <input type="text" step="1" class="border-[3px] border-pink-900 rounded-2xl p-2 w-full"
+                    name="category" value="{{ old('Category_ID') }}" />
 
-                @error('Category ID')
+                @error('category')
                     <p class=" text-red-500 text-xs mt-1"> {{ $message }} </p>
                 @enderror
             </div>
 
             <div class="mb-6">
-                <label for="Fandom_ID" class="inline-block text-lg mb-2 text-pink-900">Fandom ID</label>
-                <input type="number" step="1" class="border-[3px] border-pink-900 rounded-2xl p-2 w-full"
-                    name="Fandom_ID" value=" {{ old('Fandom_ID') }} " />
+                <label for="fandom" class="inline-block text-lg mb-2 text-pink-900">Fandom</label>
+                <input type="text" step="1" class="border-[3px] border-pink-900 rounded-2xl p-2 w-full"
+                    name="fandom" value=" {{ old('Fandom_ID') }} " />
 
-                @error('Fandom_ID')
-                    <p class="text-red-500 text-xs mt-1"> {{ $message }} </p>
-                @enderror
-            </div>
-
-            <div class="mb-6">
-                <label for="Seller_ID" class="inline-block text-lg mb-2 text-pink-900">Seller ID</label>
-                <input type="number" step="1" class="border-[3px] border-pink-900 rounded-2xl p-2 w-full"
-                    name="Seller_ID" value=" {{ old('Seller_ID') }} " />
-
-                @error('Seller_ID')
+                @error('fandom')
                     <p class="text-red-500 text-xs mt-1"> {{ $message }} </p>
                 @enderror
             </div>

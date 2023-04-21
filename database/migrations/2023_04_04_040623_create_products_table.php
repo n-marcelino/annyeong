@@ -19,10 +19,9 @@ return new class extends Migration
             $table->integer('stock');
             $table->string('photo')->nullable();
             $table->longText('description');
-            $table->integer('Category_ID');
-            $table->integer('Fandom_ID');
-            $table->integer('Seller_ID');
             $table->timestamps();
+            $table->string('category');
+            $table->string('fandom');
         });
     }
 
