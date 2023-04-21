@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
+use App\Models\Cart;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ProductsController extends Controller
 {
@@ -92,6 +94,37 @@ class ProductsController extends Controller
     //manage posts
     public function manage() {
         return view('manage', ['products' => auth()->user()->products()->get()]);
+    }
+
+    public function addToCart(Request $request)
+    {
+        if(auth()->check())
+        {  
+            $cart= new Cart;
+            $cart->user_id = auth()->id();
+            $cart->product_id = $request->product_id;
+            $cart->save();
+            return redirect('/');
+        } else {
+            return redirect('/login');
+        }
+    }
+    
+    public function cartlist()
+    {
+        $userID= auth()->id();
+        $products= DB::table('carts')
+        ->join('products', 'carts.product_id', '=', 'products.id')
+        ->where('carts.user_id', $userID)
+        ->select('products.*', 'carts.id as cart_id')
+        ->get();
+
+        return view('cartlist', ['products'=>$products]); 
+    }
+
+    public function removecart($id){
+        Cart::destroy($id);
+        return redirect('/cartlist');
     }
 
 }

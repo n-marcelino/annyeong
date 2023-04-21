@@ -71,8 +71,11 @@
             <h4>₱ {{ $product['price'] }}</h4>
 
             <h4 id="stock">In-stock: {{ $product['stock'] }}</h4><br>
-            <button type="button"><a href="/products/create"> Add to cart <i class="fa-solid fa-cart-plus"></i> </a></button>
-
+            <form action ="/add_to_cart" method="POST">
+              @csrf
+              <input type="hidden" name="product_id" value="{{ $product ['id'] }}">
+            <button class = "btn btn-primary">Add To Cart</button>
+            </form>
         </div>
 
         <img id="product-photo" src="{{ $product->photo ? asset('storage/' . $product->photo) : asset('/images/no-image.png') }}" alt="">

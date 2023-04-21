@@ -56,6 +56,15 @@ Route::post('/logout', [UserController::class, 'logout'])->middleware('auth');
 //log in user
 Route::post('/users/authenticate', [UserController::class, 'authenticate']);
 
+//add to cart
+Route::post('/add_to_cart', [ProductsController::class, 'addToCart']);
+
+//show user cart
+Route::get('/cartlist', [ProductsController::class, 'cartlist']);
+
+//delete product from user cart
+Route::get('/removecart/{id}', [ProductsController::class, 'removecart']);
+
 
 
 

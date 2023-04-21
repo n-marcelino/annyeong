@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
@@ -47,7 +48,7 @@
             <a href="">About the Devs</a>
           </nav>
           <div class="icons">
-            <div id="cart-btn" class="fas fa-cart-shopping"></div>
+            <a href="/cartlist"><div id="cart-btn" class="fas fa-cart-shopping"></div></a>
             @auth
             <div class="navbar-item">
               <form method="POST" action="/logout">
