@@ -1,6 +1,7 @@
 *{
     font-family: Arial, Helvetica, sans-serif;
     text-transform: capitalize;
+    overflow-x: hidden;
 }
 
 body{
@@ -25,7 +26,7 @@ body{
   }
 
   .header .logo {
-    margin-right: auto;
+    margin-right: 1rem;
     padding-top: 5px;
     padding-bottom: 5px;
     font-size: 20px;
@@ -33,13 +34,20 @@ body{
     font-weight: bolder;
   }
 
+  .header .welcome-user {
+    margin-right: 1rem;
+    font-size: 20px;
+    color: #fff;
+  }
+
   .header .navbar {
     display: flex;
     align-items: center;
+    margin-left: auto;
   }
 
   .header .navbar a {
-    margin-left: 10px;
+    margin-left: 1rem;
     font-size: 15px;
     color: #fff;
   }
@@ -48,15 +56,28 @@ body{
     color: #803753;
   }
 
+  .header-left {
+    display: flex;
+    align-items: center;
+  }
+
+  .welcome-user {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 120px;
+  }
+
   .header-right {
     display: flex;
     align-items: center;
+    margin-left: auto;
   }
 
   .header-right .icons a,
   .header-right .icons div {
     font-size: 15px;
-    margin-left: 15px;
+    margin-left: 1rem;
     margin-top: 6px;
     cursor: pointer;
     color: #fff;
@@ -90,7 +111,6 @@ body{
   .navbar-item .logout:hover {
     color: #803753;
   }
-
 
 .container{
     margin-top: 220px;
@@ -130,17 +150,18 @@ body{
 
 .container .hero-text{
     margin-bottom: 40px;
-    margin-left: 50px;
-    padding-top: 50px;
+    margin-left: 0;
+    padding-top: 10px;
+    max-width: calc(100% - 400px);
 }
 
 .container .hero-text h3{
-    max-width: 800px;
-    margin-left: -13px;
+    max-width: 50%;
     color: #a2476a;
     font-weight: 200;
     font-size: 60px;
 }
+
 
 .container .hero-text h4{
     color: #595959;
@@ -151,10 +172,26 @@ body{
 .container .hero-text #stock{
     color: green;
     margin-top: -10px;
+    margin-bottom: 0;
     font-size: 16px;
 }
 
-.container .hero-text p{
+#tag {
+    margin-top: -10px;
+    margin-bottom: 50px;
+    padding: 10px 20px;
+    font-size: 12px;
+    letter-spacing: 2.5px;
+    font-weight: 500;
+    border-radius: 45px;
+    cursor: pointer;
+    outline: none;
+    background-color: #a2476a;
+    color: #fff;
+  }
+
+
+.container .hero-text p {
     width: 600px;
     max-width: 100%;
     color: #A2A2A2;
@@ -164,8 +201,14 @@ body{
     margin-bottom: 15px;
 }
 
-.container .hero-text button{
+.container .hero-text p.tag-title {
+    margin-top: 40px;
+    font-size: 14px;
+}
 
+
+
+.container .hero-text button{
     background: #a2476a;
     border: 2px solid #a2476a;
     font-size: 16px;
@@ -173,15 +216,12 @@ body{
     line-height: 24px;
     padding: 20px ;
     cursor: pointer ;
-}
-
-.container .hero-text button a{
-    color: #eee;
+    color: #ffffff;
 }
 
 .container .hero-text button i{
     font-size: 17px;
-    color: #eee;
+    color: #ffffff;
     margin-left: 10px;
     margin-top: auto;
     margin-bottom: auto;
@@ -190,28 +230,22 @@ body{
 .container .hero-text button:hover{
     background: transparent;
     border: 2px solid #a2476a;
-    transition: .4s;
-}
-
-.container .hero-text button:hover a{
     color: #a2476a;
+    transition: .4s;
 }
 
 .container .hero-text button:hover i{
     color: #a2476a;
+    transition: .4s;
 }
 
 #product-photo{
     position: absolute;
     left: 850px;
-    top: 180px;
+    top: 240px;
     width: 500px;
     height: 500px;
+    box-shadow: 0 0 40px rgba(0,0,0,0.5);
 }
 
-.welcome-user{
-    margin-right: 728px;
-    font-weight: bolder;
-    font-size: 20px;
-    color: #ffffff;
-}
+

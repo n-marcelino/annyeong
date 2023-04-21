@@ -31,41 +31,41 @@
 
 
     <header class="header">
-        <a href="/" class="logo">Annyeong</a>
-        @auth
-        <span class="welcome-user">, {{ auth()->user()->uname }}!</span>
-        @endauth
+        <div class="header-left">
+            <a href="/" class="logo">Annyeong <span class="welcome-user">@auth , {{ auth()->user()->uname }}! @endauth</span></a>
+          </div>
+
         <div class="header-right">
           <nav class="navbar">
             <a href="/"><i class="fa-solid fa-house"></i></a>
             @auth
-            <a href="/products/manage">dashboard</a>
+              <a href="/products/manage">dashboard</a>
             @else
-            <a href="/login">login</a>
-            <a href="/register">register</a>
+              <a href="/login">login</a>
+              <a href="/register">register</a>
             @endauth
             <a href="">About the Devs</a>
           </nav>
           <div class="icons">
-            <div id="cart-btn" class="fas fa-cart-shopping"></div>
+            <a href="/cartlist"><div id="cart-btn" class="fas fa-cart-shopping"></div></a>
             @auth
-            <div class="navbar-item">
-              <form method="POST" action="/logout">
-                @csrf
-                <button type="submit" class="logout">
-                  <i class="fa-solid fa-right-from-bracket"></i>
-                </button>
-              </form>
-            </div>
+              <div class="navbar-item">
+                <form method="POST" action="/logout">
+                  @csrf
+                  <button type="submit" class="logout">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                  </button>
+                </form>
+              </div>
             @endauth
           </div>
         </div>
       </header>
 
-
-    <div class="container" id="home">
+    <div class="container">
         <a href="/" class="back-button"><i class="fa-solid fa-arrow-left"></i> Back</a>
         <div class="hero-text">
+
             <h3>{{ $product['name'] }}</h3>
             <p> {{ $product['description'] }}</p>
             <h4>₱ {{ $product['price'] }}</h4>
@@ -74,8 +74,13 @@
             <form action ="/add_to_cart" method="POST">
               @csrf
               <input type="hidden" name="product_id" value="{{ $product ['id'] }}">
-            <button class = "btn btn-primary">Add To Cart</button>
+            <button class = "btn btn-primary">Add To Cart <i class="fa-solid fa-cart-plus"></i> </button>
             </form>
+
+            <p class="tag-title">Tags</p>
+            <button id="tag"> {{ $product['category'] }} </button> <button id="tag"> {{ $product['fandom'] }} </button>
+
+
         </div>
 
         <img id="product-photo" src="{{ $product->photo ? asset('storage/' . $product->photo) : asset('/images/no-image.png') }}" alt="">
