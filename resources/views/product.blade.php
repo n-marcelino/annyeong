@@ -25,6 +25,7 @@
 
     <script src="//unpkg.com/alpinejs" defer></script>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="{{ asset('js/header-scroll.js') }}"></script>
 </head>
 
 <body>

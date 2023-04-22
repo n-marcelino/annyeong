@@ -4,6 +4,23 @@
     overflow-x: hidden;
 }
 
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+}
+
+html::-webkit-scrollbar {
+    width: 0.5rem;
+}
+
+html::-webkit-scrollbar-track {
+    background: #fff;
+}
+
+html::-webkit-scrollbar-thumb {
+    background: #77344e;
+}
+
 body{
     background: #ffffff;
 }
@@ -14,86 +31,82 @@ body{
     left: 0;
     right: 0;
     padding: 1rem 9%;
-    z-index: 1000;
-    background: #a2476a;
+    z-index: 9999;
+    background: #fff; /* initial background color */
     display: flex;
     align-items: center;
-  }
+    transition: background-color 0.5s ease; /* add transition effect */
+}
 
-  .header.active {
-    background: #101522;
-    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
-  }
-
-  .header .logo {
+.header .logo {
     margin-right: 1rem;
     padding-top: 5px;
     padding-bottom: 5px;
     font-size: 20px;
-    color: #ffffff;
-    font-weight: bolder;
-  }
+    color: #a2476a;
+    font-weight: normal;
+}
 
-  .header .welcome-user {
+.header .welcome-user {
     margin-right: 1rem;
     font-size: 20px;
-    color: #fff;
-  }
+    color: #a2476a;
+}
 
-  .header .navbar {
+.header .navbar {
     display: flex;
     align-items: center;
     margin-left: auto;
-  }
+}
 
-  .header .navbar a {
+.header .navbar a {
     margin-left: 1rem;
     font-size: 15px;
-    color: #fff;
-  }
+    color: #a2476a;
+}
 
-  .header .navbar a:hover {
+.header .navbar a:hover {
     color: #803753;
-  }
+}
 
-  .header-left {
+.header-left {
     display: flex;
     align-items: center;
-  }
+}
 
-  .welcome-user {
+.welcome-user {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
     max-width: 120px;
-  }
+}
 
-  .header-right {
+.header-right {
     display: flex;
     align-items: center;
     margin-left: auto;
-  }
+}
 
-  .header-right .icons a,
-  .header-right .icons div {
+.header-right .icons a,
+.header-right .icons div {
     font-size: 15px;
     margin-left: 1rem;
     margin-top: 6px;
     cursor: pointer;
-    color: #fff;
-  }
+    color: #a2476a;
+}
 
-  .header-right .icons a:hover,
-  .header-right .icons div:hover {
+.header-right .icons a:hover,
+.header-right .icons div:hover {
     color: #803753;
-  }
+}
 
-  .navbar-item {
+.navbar-item {
     display: inline-block;
     margin-left: 1rem;
-  }
+}
 
-  .navbar-item .logout {
+.navbar-item .logout {
     background: none;
     border: none;
     padding: 0;
@@ -101,16 +114,38 @@ body{
     cursor: pointer;
     display: flex;
     align-items: center;
-    color: #fff;
-  }
+    color: #a2476a;
+}
 
-  .navbar-item .logout a {
-    color: #fff;
-  }
+.navbar-item .logout a {
+    color: #a2476a;
+}
 
-  .navbar-item .logout:hover {
+.navbar-item .logout:hover {
     color: #803753;
-  }
+}
+  .header.scrolled {
+    background-color: #a2476a;
+}
+
+.header.scrolled .logo,
+.header.scrolled .navbar a,
+.header.scrolled .welcome-user,
+.header.scrolled .icons a,
+.header.scrolled .icons div,
+.header.scrolled .navbar-item a,
+.header.scrolled .navbar-item .logout {
+    color: #ffffff;
+}
+
+.header.scrolled .navbar a:hover,
+.header.scrolled .icons a:hover,
+.header.scrolled .icons div:hover,
+.header.scrolled .navbar-item a:hover,
+.header.scrolled .navbar-item .logout:hover {
+    color: #803753;
+}
+
 
 .container{
     margin-top: 220px;
@@ -121,7 +156,7 @@ body{
 .back-button {
     display: inline-block;
     position: absolute;
-    top: 90px;
+    top: 120px;
     left: 20px;
     background: #a2476a;
     color: #ffffff;
