@@ -42,14 +42,14 @@ body{
     margin-right: 1rem;
     padding-top: 5px;
     padding-bottom: 5px;
-    font-size: 20px;
+    font-size: 16px;
     color: #a2476a;
     font-weight: normal;
 }
 
 .header .welcome-user {
     margin-right: 1rem;
-    font-size: 20px;
+    font-size: 16px;
     color: #a2476a;
 }
 
@@ -94,6 +94,15 @@ body{
     margin-top: 6px;
     cursor: pointer;
     color: #a2476a;
+}
+
+.logo img {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+    border-radius: 50%;
+    object-fit: cover;
 }
 
 .header-right .icons a:hover,
