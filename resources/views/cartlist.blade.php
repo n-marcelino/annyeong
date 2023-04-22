@@ -31,6 +31,7 @@
 
     <table class="w-full table-auto rounded-sm mt-20 mb-40">
         <tbody>
+
             @unless ($products->isEmpty())
                 @foreach ($products as $product)
                     <tr class="border-gray-300">
@@ -60,7 +61,7 @@
             @else
                 <tr class="border-gray-300">
                     <td class="px-2 py-6 border-t border-b border-gray-300 text-base">
-                        <p class="text-center">Annyeong! Your cart is currenlty empty.</p>
+                        <p class="text-center">Annyeong! Your cart is currently empty.</p>
                     </td>
                 </tr>
             @endunless

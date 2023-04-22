@@ -52,7 +52,9 @@
             </nav>
             <div class="icons">
                 <a href="/cartlist">
-                    <div id="cart-btn" class="fas fa-cart-shopping"></div>
+                    <div id="cart-btn" class="fas fa-cart-shopping">
+                        <span id="cart-item-count"></span>
+                    </div>
                 </a>
                 @auth
                     <div class="navbar-item">
@@ -70,7 +72,7 @@
 
     <div class="container" id="home">
         <div class="hero-text">
-            <h5 class="tag"><i>Today's featured items</i></h5>
+            <h5 class="tag"><i>Today's featured item</i></h5>
             <h3>Blackpink The Album</h3>
             <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras id vestibulum urna. In lobortis, magna et
                 feugiat tempus, eros elit.</p>
