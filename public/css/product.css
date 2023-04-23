@@ -206,11 +206,27 @@ body{
     font-size: 60px;
 }
 
+#label, #seller {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+h3#label{
+    font-size: 20px;
+    color: black;
+}
+
+h3#seller{
+    font-size: 20px;
+    color: #a2476a;
+}
+
 
 .container .hero-text h4{
     color: #595959;
     font-size: 18px;
     margin-bottom: 25px;
+    color: #a2476a;
 }
 
 .container .hero-text #stock{

@@ -65,7 +65,7 @@
                         <td class="px-2 py-6 border-t border-b text-base">
                             {{-- <img id="product-photo"
                                 src="{{ $product->photo ? asset('storage/' . $product->photo) : asset('/images/no-image.png') }}"
-                                alt=""> --}}
+                                alt="">
                         </td>
                         <td class="px-2 py-6 border-t border-b text-base">
                             {{-- <h3>{{ $product->name }}</h3> --}}
