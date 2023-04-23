@@ -96,7 +96,7 @@
             <div class="mb-6">
                 <label for="category" class="inline-block text-lg mb-2 text-pink-900">Category</label>
                 <input type="text" step="1" class="border-[3px] border-pink-900 rounded-2xl p-2 w-full"
-                    name="category" value="{{ old('Category_ID') }}" />
+                    name="category" placeholder="Album, Photocard, Lightstick, etc." value="{{ old('Category_ID') }}" />
 
                 @error('category')
                     <p class=" text-red-500 text-xs mt-1"> {{ $message }} </p>
@@ -106,7 +106,8 @@
             <div class="mb-6">
                 <label for="fandom" class="inline-block text-lg mb-2 text-pink-900">Fandom</label>
                 <input type="text" step="1" class="border-[3px] border-pink-900 rounded-2xl p-2 w-full"
-                    name="fandom" value=" {{ old('Fandom_ID') }} " />
+                name="fandom" placeholder="Blink, Army, Once, Exo-l, Etc." value="{{ old('Fandom_ID') }}" />
+
 
                 @error('fandom')
                     <p class="text-red-500 text-xs mt-1"> {{ $message }} </p>
@@ -114,11 +115,11 @@
             </div>
 
             <div class="mb-6">
-                <button class="bg-pink-900 text-white rounded py-2 px-4 hover:bg-pink-950">
+                <button class="bg-pink-900 border-[3px] text-white py-2 px-4 hover:bg-white hover:border-[3px] border-pink-900 hover:text-pink-900 ">
                     Post your Product
                 </button>
 
-                <a href="/" class="bg-gray-500 py-2 px-4 rounded text-white ml-4 text-lg"> Back </a>
+                <a href="/" class="py-2 px-4 text-pink-900 ml-4 hover:bg-pink-900 hover:border-[3px] border-pink-900 hover:text-white "> Back </a>
             </div>
         </form>
     </div>

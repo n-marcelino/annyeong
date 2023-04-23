@@ -16,7 +16,8 @@
 
     <script src="//unpkg.com/alpinejs" defer></script>
     <script src="https://cdn.tailwindcss.com"></script>
-    <title>Manage your Posts</title>
+    <script src="{{ asset('js/confirmation.js') }}"></script>
+    <title>Manage your Products</title>
 
 </head>
 
@@ -45,10 +46,10 @@
                         </td>
                         <td class="px-2 py-6 border-t border-b border-gray-300 text-base">
 
-                            <form method="POST" action="/products/{{ $product->id }}">
+                            <form method="POST" action="/products/{{ $product->id }}" id="delete-form">
                                 @csrf
                                 @method('DELETE')
-                                <button class="text-red-500"><i class="fa-solid fa-trash"></i> Delete</button>
+                                <button class="text-red-700" onclick="return showConfirmation()"><i class="fa-solid fa-trash"></i> Delete</button>
                             </form>
 
                         </td>
@@ -57,7 +58,7 @@
             @else
                 <tr class="border-gray-300">
                     <td class="px-2 py-6 border-t border-b border-gray-300 text-base">
-                        <p class="text-center">You don't have any posts yet.</p>
+                        <p class="text-center">Annyeong! You don't have any posts yet.</p>
                     </td>
                 </tr>
             @endunless
@@ -65,7 +66,8 @@
         </tbody>
     </table>
 
-    <a href="/" class="back-button"><i class="fa-solid fa-arrow-left"></i> Back</a>
+    <a href="/" class="back-button" id="btn1"><i class="fa-solid fa-arrow-left"></i> Back</a>
+    <a href="/products/create" class="shop-button" id="btn2"><i class="fa-solid fa-plus"></i></i>Add item</a>
     </div>
 </body>
 

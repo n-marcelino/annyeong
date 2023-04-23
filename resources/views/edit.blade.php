@@ -32,10 +32,9 @@
 <body>
     <div class="bg-gray-50 border border-gray-200 p-10 rounded max-w-lg mx-auto mt-24">
         <header class="text-center">
-            <h2 class="text-2xl font-bold uppercase mb-1">
-                Edit Your Listing
+            <h2 class="text-2xl text-pink-900 font-bold capitalize mb-10">
+                {{ $product->name }}
             </h2>
-            <p class="mb-4">Edit: {{ $product->name }}</p>
         </header>
 
         <form action="/products/{{ $product->id }}" method="POST" enctype="multipart/form-data">
@@ -118,11 +117,11 @@
             </div>
 
             <div class="mb-6">
-                <button class="bg-pink-900 text-white rounded py-2 px-4 hover:bg-pink-950">
+                <button class="bg-pink-900 border-[2px] border-pink-900 text-white py-2 px-4 hover:bg-gray-50 hover:border-[2px] border-pink-900 hover:text-pink-900">
                     Edit
                 </button>
 
-                <a href="/" class="text-black ml-4"> Back </a>
+                <a href="/" class="py-2 px-4 text-pink-900 ml-4 hover:bg-pink-900 hover:border-[3px] border-pink-900 hover:text-white"> Back </a>
             </div>
         </form>
     </div>

@@ -3,36 +3,58 @@
     overflow-x: hidden;
 }
 
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+}
+
+html::-webkit-scrollbar {
+    width: 0.5rem;
+}
+
+html::-webkit-scrollbar-track {
+    background: #fff;
+}
+
+html::-webkit-scrollbar-thumb {
+    background: #77344e;
+}
+
 .header {
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     padding: 1rem 9%;
-    z-index: 1000;
-    background: #a2476a;
+    z-index: 9999;
+    background: #fff; /* initial background color */
     display: flex;
     align-items: center;
-}
-
-.header.active {
-    background: #101522;
-    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+    transition: background-color 0.5s ease; /* add transition effect */
 }
 
 .header .logo {
     margin-right: 1rem;
     padding-top: 5px;
     padding-bottom: 5px;
-    font-size: 20px;
-    color: #ffffff;
-    font-weight: bolder;
+    font-size: 16px;
+    color: #a2476a;
+    font-weight: normal;
+}
+
+.logo img {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+    border-radius: 50%;
+    object-fit: cover;
 }
 
 .header .welcome-user {
     margin-right: 1rem;
-    font-size: 20px;
-    color: #fff;
+    font-size: 16px;
+    color: #a2476a;
 }
 
 .header .navbar {
@@ -44,7 +66,7 @@
 .header .navbar a {
     margin-left: 1rem;
     font-size: 15px;
-    color: #fff;
+    color: #a2476a;
 }
 
 .header .navbar a:hover {
@@ -75,7 +97,7 @@
     margin-left: 1rem;
     margin-top: 6px;
     cursor: pointer;
-    color: #fff;
+    color: #a2476a;
 }
 
 .header-right .icons a:hover,
@@ -96,14 +118,36 @@
     cursor: pointer;
     display: flex;
     align-items: center;
-    color: #fff;
+    color: #a2476a;
 }
 
 .navbar-item .logout a {
-    color: #fff;
+    color: #a2476a;
 }
 
 .navbar-item .logout:hover {
+    color: #803753;
+}
+
+.header.scrolled {
+    background-color: #a2476a;
+}
+
+.header.scrolled .logo,
+.header.scrolled .navbar a,
+.header.scrolled .welcome-user,
+.header.scrolled .icons a,
+.header.scrolled .icons div,
+.header.scrolled .navbar-item a,
+.header.scrolled .navbar-item .logout {
+    color: #ffffff;
+}
+
+.header.scrolled .navbar a:hover,
+.header.scrolled .icons a:hover,
+.header.scrolled .icons div:hover,
+.header.scrolled .navbar-item a:hover,
+.header.scrolled .navbar-item .logout:hover {
     color: #803753;
 }
 
@@ -235,7 +279,6 @@
     width: 65%;
     margin-top: 50px;
     margin-left: 120px;
-    /* add margin to create some space between the divs */
 }
 
 .product-container {
@@ -249,6 +292,19 @@
     margin-right: 80px;
     margin-top: 40px;
     margin-bottom: 40px;
+}
+
+.product-container::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+.product-container::-webkit-scrollbar-thumb {
+    background: #77344e;
+}
+
+.product-container::-webkit-scrollbar-track {
+    background: #e0e0e0;
 }
 
 .product-image {

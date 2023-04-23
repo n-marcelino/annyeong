@@ -100,17 +100,19 @@ class ProductsController extends Controller
     public function addToCart(Request $request)
     {
         if(auth()->check())
-        {  
+        {
             $cart= new Cart;
             $cart->user_id = auth()->id();
             $cart->product_id = $request->product_id;
             $cart->save();
+
+
             return redirect('/');
         } else {
             return redirect('/login');
         }
     }
-    
+
     public function cartlist()
     {
         $userID= auth()->id();
@@ -120,7 +122,8 @@ class ProductsController extends Controller
         ->select('products.*', 'carts.id as cart_id')
         ->get();
 
-        return view('cartlist', ['products'=>$products]); 
+        return view('cartlist', ['products'=>$products]);
+
     }
 
     public function removecart($id){

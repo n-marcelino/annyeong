@@ -16,6 +16,7 @@
 
     <script src="//unpkg.com/alpinejs" defer></script>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="{{ asset('js/confirmation.js') }}"></script>
     <title>Your Cart</title>
 
 </head>
@@ -30,6 +31,7 @@
 
     <table class="w-full table-auto rounded-sm mt-20 mb-40">
         <tbody>
+
             @unless ($products->isEmpty())
                 @foreach ($products as $product)
                     <tr class="border-gray-300">
@@ -51,14 +53,15 @@
                         </td>
 
                         <td class="px-1 py-6 border-t border-b border-gray-300 text-base text-red-700">
-                            <a href="/removecart/{{ $product->cart_id }}">Remove <i class="fa-solid fa-trash"></i></a>
+                            <a href="/removecart/{{ $product->cart_id }}" onclick="return showConfirmation()">Remove <i class="fa-solid fa-trash"></i></a>
                         </td>
+
                     </tr>
                 @endforeach
             @else
                 <tr class="border-gray-300">
                     <td class="px-2 py-6 border-t border-b border-gray-300 text-base">
-                        <p class="text-center">Annyeong! Your cart is currenlty empty.</p>
+                        <p class="text-center">Annyeong! Your cart is currently empty.</p>
                     </td>
                 </tr>
             @endunless

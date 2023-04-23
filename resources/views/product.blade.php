@@ -25,6 +25,8 @@
 
     <script src="//unpkg.com/alpinejs" defer></script>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="{{ asset('js/header-scroll.js') }}"></script>
 </head>
 
 <body>
@@ -32,7 +34,7 @@
 
     <header class="header">
         <div class="header-left">
-            <a href="/" class="logo">Annyeong <span class="welcome-user">@auth , {{ auth()->user()->uname }}! @endauth</span></a>
+            <a href="/" class="logo"><img class="logo-image" src="{{ url('/images/Annyeong.png') }}" alt="Logo">Annyeong <span class="welcome-user">@auth , {{ auth()->user()->uname }}! @endauth</span></a>
           </div>
 
         <div class="header-right">

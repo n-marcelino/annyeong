@@ -25,6 +25,9 @@
 
     <script src="//unpkg.com/alpinejs" defer></script>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="{{ asset('js/header-scroll.js') }}"></script>
+
 
 </head>
 
@@ -32,7 +35,8 @@
 
     <header class="header">
         <div class="header-left">
-            <a href="/" class="logo">Annyeong <span class="welcome-user">@auth , {{ auth()->user()->uname }}!
+            <a href="/" class="logo"> <img class="logo-image" src="{{ url('/images/Annyeong.png') }}" alt="Logo">Annyeong
+                <span class="welcome-user">@auth , {{ auth()->user()->uname }}!
                     @endauth
                 </span></a>
         </div>
@@ -50,7 +54,9 @@
             </nav>
             <div class="icons">
                 <a href="/cartlist">
-                    <div id="cart-btn" class="fas fa-cart-shopping"></div>
+                    <div id="cart-btn" class="fas fa-cart-shopping">
+                        <span id="cart-item-count"></span>
+                    </div>
                 </a>
                 @auth
                     <div class="navbar-item">
@@ -68,7 +74,7 @@
 
     <div class="container" id="home">
         <div class="hero-text">
-            <h5 class="tag"><i>Today's featured items</i></h5>
+            <h5 class="tag"><i>Today's featured item</i></h5>
             <h3>Blackpink The Album</h3>
             <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras id vestibulum urna. In lobortis, magna et
                 feugiat tempus, eros elit.</p>
