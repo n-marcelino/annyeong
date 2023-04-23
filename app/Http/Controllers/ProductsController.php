@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Product;
 use App\Models\Cart;
+use App\Models\Order;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -126,5 +127,42 @@ class ProductsController extends Controller
         Cart::destroy($id);
         return redirect('/cartlist');
     }
+
+    public function checkout()
+    {
+
+        $userID= auth()->id();
+        $total= DB::table('carts')
+        ->join('products', 'carts.product_id', '=', 'products.id')
+        ->where('carts.user_id', $userID)
+        ->sum('products.price');
+
+        return view('checkout', ['total'=>$total]);     
+    }
+
+    public function orderplaced(Request $request)
+{
+    $userID= auth()->id();
+    $allcart = Cart::where('user_id', $userID)->get();
+    foreach($allcart as $cart)
+    {
+        $order= new Order;
+        $order->product_id=$cart['product_id'];
+        $order->user_id=$cart['user_id'];
+        $order->status="pending";
+        $order->payment_method=$request->payment;
+        $order->payment_status="pending";
+        $order->address=$request->address;
+        $order->save();
+
+        $product = Product::find($cart['product_id']);
+        $product->stock--;
+        $product->save();
+
+        $allcart = Cart::where('user_id', $userID)->delete();
+    }
+    $request->input();
+    return redirect('/');
+}
 
 }

@@ -65,6 +65,12 @@ Route::get('/cartlist', [ProductsController::class, 'cartlist']);
 //delete product from user cart
 Route::get('/removecart/{id}', [ProductsController::class, 'removecart']);
 
+//checkout
+Route::get('/checkout', [ProductsController::class, 'checkout']);
+
+//orderplaced
+Route::post('/orderplaced', [ProductsController::class, 'orderplaced']);
+
 
 
 

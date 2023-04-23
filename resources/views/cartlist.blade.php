@@ -67,7 +67,7 @@
     </table>
 
     <a href="/" class="back-button" id="btn1"><i class="fa-solid fa-arrow-left"></i> Back</a>
-    <a href="/" class="shop-button" id="btn2"><i class="fa-solid fa-bag-shopping"></i>Checkout</a>
+    <a href="/checkout" class="shop-button" id="btn2"><i class="fa-solid fa-bag-shopping"></i>Checkout</a>
 
     </div>
 </body>
