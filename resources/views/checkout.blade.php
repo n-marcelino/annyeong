@@ -57,59 +57,69 @@
         </div>
 
         <div class="main-container2">
-            <h3>Products Ordered</h3>
+            <h3 id="tag">Products Ordered</h3>
 
-            <table>
+            <table class="w-full table-auto rounded-sm mt-8 mb-16">
                 <thead>
                     <tr>
-                        <th>Product Name</th>
-                        <th>Quantity</th>
-                        <th>Price</th>
-                        <th>Total Price</th>
+                        <th class="text-left px-2 py-6 text-gray-400 font-normal"></th>
+                        <th class="text-left px-2 py-6 text-gray-400 font-normal">Item</th>
+                        <th class="text-left px-2 py-6 text-gray-400 font-normal">Price</th>
+                        <th class="text-left px-2 py-6 text-gray-400 font-normal">Quantity</th>
+                        <th class="text-left px-2 py-6 text-gray-400 font-normal">Total Price</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($cartItems as $item)
-    <tr>
-        <td>{{ $item->name }}</td>
-        <td>{{ $item->quantity }}</td>
-        <td>{{ $item->price }}</td>
-        <td>{{ $item->totalPrice }}</td>
-        <td><img src="{{ asset('storage/' . $item->photo) }}" alt="{{ $item->name }}"></td>
-    </tr>
-@endforeach
+                    @foreach ($cartItems as $item)
+                        <tr class="border-gray-300">
+                            <td class="px-2 py-6 border-t border-b text-base">
+                                <img id="product-photo"src="{{ asset('storage/' . $item->photo) }}"
+                                    alt="{{ $item->name }}">
+                            </td>
+                            <td class="px-2 py-6 border-t border-b text-base">
+                                <h3>{{ $item->name }}</h3>
+                            </td>
 
-                    <tr>
-                        <td colspan="3" style="text-align: right;">Total:</td>
-                        <td>{{ $total }}</td>
-                    </tr>
+                            <td class="px-2 py-6 border-t border-b text-base">
+                                <h4 id="price">₱ {{ $item->price }}</h4>
+                            </td>
+
+                            <td class="px-2 py-6 border-t border-b text-base">
+                                <h4 id="quantity"> {{ $item->quantity }}</h4>
+
+                            </td>
+
+                            <td class="px-2 py-6 border-t border-b text-base">
+                                <h4 id="price">₱ {{ $item->totalPrice }}</h4>
+                            </td>
+
+
+                        </tr>
+                    @endforeach
                 </tbody>
             </table>
         </div>
 
+        <div class="main-container3">
+            <h2 class="section-title">Payment Method</h2>
+            <div class="payment-method">
+                <label for="payment-ewallet">
+                    <input type="radio" id="payment-ewallet" value="ewallet" name="payment">
+                    <span><i class="fa-regular fa-wallet"></i> E-Wallet (Gcash, Maya, Coins, etc.) </span>
+                </label>
+                <label for="payment-card">
+                    <input type="radio" id="payment-card" value="card" name="payment">
+                    <span><i class="fa-regular fa-credit-card"></i>Credit/Debit Card</span>
+                </label>
+                <label for="payment-cod">
+                    <input type="radio" id="payment-cod" value="cod" name="payment">
+                    <span><i class="fa-sharp fa-regular fa-money-bill"></i>Cash on Delivery</span>
+                </label>
+            </div>
+            <button type="submit" class="btn btn-default" id="btn">Checkout</button>
+            </form>
+        </div>
 
-    </div>
-
-
-    <table class="table">
-        <tbody>
-            <tr>
-                <td>Amount</td>
-                <td></td>
-            </tr>
-            <tr>
-                <td>Delivery Fee</td>
-                <td>₱ 60</td>
-            </tr>
-        </tbody>
-    </table>
-
-    <label for="payment">Choose your payment method:</label><br>
-    <input type="radio" value="cash" name="payment"> <span>E-Wallet(Gcash,Maya,Coins,etc.)</span><br>
-    <input type="radio" value="cash" name="payment"> <span>Credit/Debit Card</span><br>
-    <input type="radio" value="cash" name="payment"> <span>Cash on Delivery</span><br>
-    <button type="submit" class="btn btn-default">Checkout</button>
-    </form>
 
 </body>
 
