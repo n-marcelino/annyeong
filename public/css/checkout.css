@@ -1,0 +1,105 @@
+.banner {
+    display: flex;
+    align-items: center;
+    padding: 30px;
+}
+
+.logo-image {
+    margin-left: 60px;
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+}
+
+#heading {
+    color: #a2476a;
+    font-size: 20px;
+}
+
+.main-body {
+    background: #EDEDED;
+    min-height: 500px;
+    padding-top: 20px;
+}
+
+.main-container1{
+    background: white;
+    display: grid;
+    grid-template-columns: 25% 75% 0%;
+    /* Divide into three equal columns */
+    grid-gap: 1px;
+    /* Add a gap between grid items */
+    margin: auto;
+    max-width: 80%;
+    padding-top: 20px;
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-bottom: 20px;
+}
+
+
+.column1 {
+    grid-column: 1 / 2;
+    /* Span one column */
+}
+
+.column2 {
+    grid-column: 2 / 2;
+    /* Span one column */
+}
+
+
+.info,
+.name,
+.contact {
+    margin: 0;
+    margin-left: 30px;
+}
+
+.info {
+    color: #a2476a;
+}
+
+.info i{
+    color: #a2476a;
+    margin-right: 5px;
+}
+
+
+.name {
+    margin-top: 20px;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.contact {
+    color: #7e7e7e;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+#address{
+    margin-top: 45px;
+    border-bottom: 2px solid #9d9d9d;
+    width: 45rem;
+
+}
+
+#loc{
+    position: relative;
+    bottom: 33px;
+    margin-right: 3px;
+    color: #a2476a;
+}
+
+.main-container2{
+    background: white;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 80%;
+    padding-top: 20px;
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-bottom: 20px;
+}

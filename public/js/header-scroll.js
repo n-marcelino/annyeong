@@ -9,11 +9,9 @@ $(document).ready(function() {
 
     $(window).scroll(function() {
 
-      if ($(this).scrollTop() > 50) {
-        // Apply a different logo image if the user has scrolled 50 pixels or more
+      if ($(this).scrollTop() > 10) {
         $('.logo-image').attr('src', '/images/Annyeong 2.png');
       } else {
-        // Revert to the default logo image if the user has scrolled less than 50 pixels
         $('.logo-image').attr('src', '/images/Annyeong.png');
       }
     });

@@ -45,18 +45,18 @@
                         </td>
 
                         <td class="px-2 py-6 border-t border-b text-base">
-                            <h4>₱ {{ $product->price }}</h4>
+                            <h4 id="price">₱ {{ $product->price }}</h4>
                         </td>
 
                         <td class="px-2 py-6 border-t border-b text-base">
                             <h4 id="stock">In-stock: {{ $product->stock }}</h4>
                         </td>
-                        
+
                         <td class="px-2 py-6 border-t border-b text-base">
                             <form action="/updatecart/{{ $product->cart_id }}" method="POST">
                                 @csrf
-                                <input type="number" name="quantity" min="1" max="{{$product->stock}}"value="{{ $product->cart_quantity }}" class="w-20">
-                                <button type="submit">Update Cart</button>
+                                <input id="quantity" type="number" name="quantity" min="1" max="{{$product->stock}}"value="{{ $product->cart_quantity }}" class="w-20">
+                                <button type="submit" id="update">Update Quantity</button>
                             </form>
                         </td>
 

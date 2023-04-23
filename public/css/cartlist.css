@@ -39,13 +39,37 @@ body{
     font-weight: bolder;
 }
 
+#price{
+    margin-left: 60px;
+}
+
 .container #stock{
     position: relative;
-    left: -60px;
+    left: -100px;
     color: green;
     font-size: 13px;
     font-weight: normal;
 }
+
+#quantity{
+    border-bottom: 2px solid #9d9d9d;
+    padding: 5px 12px;
+}
+
+#update {
+    border: 2px solid #a2476a;
+    padding: 5px 12px;
+    font-size: 14px;
+    margin-left: 10px;
+    background: #a2476a;
+    color: #ffffff;
+}
+
+#update:hover {
+    background: #ffffff;
+    color: #a2476a;
+    border: 2px solid #a2476a;
+    }
 
 .back-button,
 .shop-button {
