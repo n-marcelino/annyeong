@@ -89,7 +89,10 @@ class ProductsController extends Controller
     public function show(Product $product){
         return view('product', [
             'product' => $product
+        
         ]);
+
+        
     }
 
     //manage posts

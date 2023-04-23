@@ -73,12 +73,31 @@
             <h4>₱ {{ $product['price'] }}</h4>
 
             <h4 id="stock">In-stock: {{ $product['stock'] }}</h4><br>
-            <form action ="/add_to_cart" method="POST">
-              @csrf
-              <input type="number" name="quantity" min="1" max="{{ $product->stock }}" value="1">
-              <input type="hidden" name="product_id" value="{{ $product ['id'] }}">
-            <button class = "btn btn-primary">Add To Cart <i class="fa-solid fa-cart-plus"></i> </button>
-            </form>
+            @php
+    $inCart = false;
+    $postedByUser = false;
+    if (auth()->user()->cart !== null) {
+        foreach(auth()->user()->cart as $item) {
+            if ($item->id == $product->id) {
+                $inCart = true;
+                break;
+            }
+        }
+    }
+
+    if ($product->user_id == auth()->id()) {
+        $postedByUser = true;
+    }
+@endphp
+
+@if (!$inCart && !$postedByUser)
+    <form action="/add_to_cart" method="POST">
+        @csrf
+        <input type="number" name="quantity" min="1" max="{{ $product->stock }}" value="1">
+        <input type="hidden" name="product_id" value="{{ $product['id'] }}">
+        <button class="btn btn-primary">Add To Cart <i class="fa-solid fa-cart-plus"></i></button>
+    </form>
+@endif
 
             <p class="tag-title">Tags</p>
             <button id="tag"> {{ $product['category'] }} </button> <button id="tag"> {{ $product['fandom'] }} </button>
