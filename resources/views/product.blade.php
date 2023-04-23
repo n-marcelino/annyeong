@@ -93,7 +93,6 @@
 @if (!$inCart && !$postedByUser)
     <form action="/add_to_cart" method="POST">
         @csrf
-        <input type="number" name="quantity" min="1" max="{{ $product->stock }}" value="1">
         <input type="hidden" name="product_id" value="{{ $product['id'] }}">
         <button class="btn btn-primary">Add To Cart <i class="fa-solid fa-cart-plus"></i></button>
     </form>
