@@ -69,6 +69,7 @@
         <div class="hero-text">
 
             <h3>{{ $product['name'] }}</h3>
+            <h3 id="label">Seller:</h3><h3 id="seller"> {{ $product->user ? $product->user->uname : 'Unknown' }}</h3>
             <p> {{ $product['description'] }}</p>
             <h4>₱ {{ $product['price'] }}</h4>
 
