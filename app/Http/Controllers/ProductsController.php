@@ -104,6 +104,7 @@ class ProductsController extends Controller
             $cart= new Cart;
             $cart->user_id = auth()->id();
             $cart->product_id = $request->product_id;
+            $cart->quantity = $request->quantity;
             $cart->save();
 
 
@@ -113,13 +114,27 @@ class ProductsController extends Controller
         }
     }
 
+    public function updateCart(Request $request, $cart_id)
+{
+    // validate the form data
+    $request->validate([
+        'quantity' => 'required|numeric|min:1'
+    ]);
+
+    $cart = Cart::find($cart_id);
+    $cart->quantity = $request->input('quantity');
+    $cart->save();
+
+    return redirect('/cartlist');
+}
+
     public function cartlist()
     {
         $userID= auth()->id();
         $products= DB::table('carts')
         ->join('products', 'carts.product_id', '=', 'products.id')
         ->where('carts.user_id', $userID)
-        ->select('products.*', 'carts.id as cart_id')
+        ->select('products.*', 'carts.id as cart_id', 'carts.quantity as cart_quantity')
         ->get();
 
         return view('cartlist', ['products'=>$products]);
@@ -132,40 +147,54 @@ class ProductsController extends Controller
     }
 
     public function checkout()
-    {
+{
+    $userID = auth()->id();
 
-        $userID= auth()->id();
-        $total= DB::table('carts')
+    $cartItems = DB::table('carts')
         ->join('products', 'carts.product_id', '=', 'products.id')
         ->where('carts.user_id', $userID)
-        ->sum('products.price');
+        ->select('products.name', 'products.price', 'carts.quantity')
+        ->get();
 
-        return view('checkout', ['total'=>$total]);     
+    $total = 0;
+    foreach ($cartItems as $item) {
+        $item->totalPrice = $item->price * $item->quantity;
+        $total += $item->totalPrice;
     }
 
-    public function orderplaced(Request $request)
+    return view('checkout', ['cartItems' => $cartItems, 'total' => $total]);
+}
+
+
+public function orderplaced(Request $request)
 {
-    $userID= auth()->id();
+    $userID = auth()->id();
     $allcart = Cart::where('user_id', $userID)->get();
-    foreach($allcart as $cart)
-    {
-        $order= new Order;
-        $order->product_id=$cart['product_id'];
-        $order->user_id=$cart['user_id'];
-        $order->status="pending";
-        $order->payment_method=$request->payment;
-        $order->payment_status="pending";
-        $order->address=$request->address;
+    foreach($allcart as $cart) {
+        $order = new Order;
+        $order->product_id = $cart['product_id'];
+        $order->user_id = $cart['user_id'];
+        $order->status = "pending";
+        $order->payment_method = $request->payment;
+        $order->payment_status = "pending";
+        $order->address = $request->address;
         $order->save();
 
         $product = Product::find($cart['product_id']);
-        $product->stock--;
-        $product->save();
+        $product->stock -= $cart['quantity'];
+
+        // Check if the product's stock has reached 0
+        if ($product->stock == 0) {
+            $product->delete();
+        } else {
+            $product->save();
+        }
 
         $allcart = Cart::where('user_id', $userID)->delete();
     }
     $request->input();
     return redirect('/');
 }
+
 
 }
