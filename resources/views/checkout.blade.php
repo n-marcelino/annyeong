@@ -59,28 +59,30 @@
         <div class="main-container2">
             <h3>Products Ordered</h3>
 
-            <table class="w-full table-auto rounded-sm mt-20 mb-40">
-                <tbody>
-                    <tr class="border-gray-300">
-                        <td class="px-2 py-6 border-t border-b text-base">
-                            {{-- <img id="product-photo"
-                                src="{{ $product->photo ? asset('storage/' . $product->photo) : asset('/images/no-image.png') }}"
-                                alt=""> --}}
-                        </td>
-                        <td class="px-2 py-6 border-t border-b text-base">
-                            {{-- <h3>{{ $product->name }}</h3> --}}
-                        </td>
-
-                        <td class="px-2 py-6 border-t border-b text-base">
-                            {{-- <h4 id="price">₱ {{ $product->price }}</h4> --}}
-                        </td>
-
-                        <td class="px-2 py-6 border-t border-b text-base">
-                            <h4 id="stock">₱ {{ $total }}</h4>
-                        </td>
-
+            <table>
+                <thead>
+                    <tr>
+                        <th>Product Name</th>
+                        <th>Quantity</th>
+                        <th>Price</th>
+                        <th>Total Price</th>
                     </tr>
+                </thead>
+                <tbody>
+                    @foreach($cartItems as $item)
+    <tr>
+        <td>{{ $item->name }}</td>
+        <td>{{ $item->quantity }}</td>
+        <td>{{ $item->price }}</td>
+        <td>{{ $item->totalPrice }}</td>
+        <td><img src="{{ asset('storage/' . $item->photo) }}" alt="{{ $item->name }}"></td>
+    </tr>
+@endforeach
 
+                    <tr>
+                        <td colspan="3" style="text-align: right;">Total:</td>
+                        <td>{{ $total }}</td>
+                    </tr>
                 </tbody>
             </table>
         </div>

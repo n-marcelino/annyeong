@@ -153,10 +153,10 @@ class ProductsController extends Controller
     $userID = auth()->id();
 
     $cartItems = DB::table('carts')
-        ->join('products', 'carts.product_id', '=', 'products.id')
-        ->where('carts.user_id', $userID)
-        ->select('products.name', 'products.price', 'carts.quantity')
-        ->get();
+    ->join('products', 'carts.product_id', '=', 'products.id')
+    ->where('carts.user_id', $userID)
+    ->select('products.name', 'products.price', 'products.photo', 'carts.quantity')
+    ->get();
 
     $total = 0;
     foreach ($cartItems as $item) {
