@@ -92,7 +92,7 @@
         }
     @endphp
 
-    @if (!$inCart && !$postedByUser)
+    @if (!$inCart && !$postedByUser && $product->stock>0)
         <form action="/add_to_cart" method="POST">
             @csrf
             <input type="hidden" name="product_id" value="{{ $product['id'] }}">

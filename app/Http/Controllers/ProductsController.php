@@ -197,12 +197,8 @@ class ProductsController extends Controller
         $order->save();
 
         $product->stock -= $cart['quantity'];
-
-        if ($product->stock == 0) {
-            $product->delete();
-        } else {
-            $product->save();
-        }
+        $product->save();
+        
     }
 
     Cart::where('user_id', $userID)->delete();
