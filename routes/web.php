@@ -60,7 +60,7 @@ Route::post('/users/authenticate', [UserController::class, 'authenticate']);
 Route::post('/add_to_cart', [ProductsController::class, 'addToCart']);
 
 //show user cart
-Route::get('/cartlist', [ProductsController::class, 'cartlist']);
+Route::get('/cartlist', [ProductsController::class, 'cartlist'])->middleware('auth');
 
 //delete product from user cart
 Route::get('/removecart/{id}', [ProductsController::class, 'removecart']);
@@ -69,10 +69,12 @@ Route::get('/removecart/{id}', [ProductsController::class, 'removecart']);
 Route::post('/updatecart/{cart_id}', [ProductsController::class, 'updatecart']);
 
 //checkout
-Route::get('/checkout', [ProductsController::class, 'checkout']);
+Route::get('/checkout', [ProductsController::class, 'checkout'])->middleware('auth');
 
 //orderplaced
 Route::post('/orderplaced', [ProductsController::class, 'orderplaced']);
+
+
 
 
 
