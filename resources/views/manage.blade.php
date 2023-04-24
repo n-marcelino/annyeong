@@ -40,6 +40,9 @@
                             </a>
                         </td>
                         <td class="px-2 py-6 border-t border-b border-gray-300 text-base">
+                            {{ $product->orders_count }}
+                        </td>
+                        <td class="px-2 py-6 border-t border-b border-gray-300 text-base">
                             <a href="/products/{{ $product->id }}/edit" class="text-blue-400 px-6 py-2 rounded-xl"><i
                                     class="fa-solid fa-pen-to-square"></i>
                                 Edit</a>

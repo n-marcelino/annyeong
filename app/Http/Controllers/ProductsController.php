@@ -96,8 +96,15 @@ class ProductsController extends Controller
     }
 
     //manage posts
-    public function manage() {
-        return view('manage', ['products' => auth()->user()->products()->get()]);
+    public function manage()
+    {
+        $products = Product::withCount(['orders' => function ($query) {
+            $query->select(DB::raw('sum(quantity)'));
+        }])
+        ->where('user_id', auth()->user()->id)
+        ->get();
+
+    return view('manage', compact('products'));
     }
 
     public function addToCart(Request $request)
@@ -117,7 +124,7 @@ class ProductsController extends Controller
     }
 
     public function updateCart(Request $request, $cart_id)
-{
+    {
     // validate the form data
     $request->validate([
         'quantity' => 'required|numeric|min:1'
@@ -128,7 +135,7 @@ class ProductsController extends Controller
     $cart->save();
 
     return redirect('/cartlist');
-}
+    }
 
     public function cartlist()
     {
@@ -149,7 +156,7 @@ class ProductsController extends Controller
     }
 
     public function checkout()
-{
+    {
     $userID = auth()->id();
 
     $cartItems = DB::table('carts')
@@ -165,11 +172,11 @@ class ProductsController extends Controller
     }
 
     return view('checkout', ['cartItems' => $cartItems, 'total' => $total]);
-}
+    }
 
 
-public function orderplaced(Request $request)
-{
+    public function orderplaced(Request $request)
+    {
     $userID = auth()->id();
     $allcart = Cart::where('user_id', $userID)->get();
 
@@ -202,11 +209,11 @@ public function orderplaced(Request $request)
 
     $request->input();
     return redirect('/');
-}
+    }
 
 
-public function myorders()
-{
+    public function myorders()
+    {
     $userID = auth()->id();
     $orders = Order::where('user_id', $userID)->get();
 
@@ -217,7 +224,7 @@ public function myorders()
     }
 
     return view('myorders', ['orders'=>$orders, 'total' => $total]);
-}
+    }
 
 
 

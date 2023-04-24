@@ -23,4 +23,9 @@ class Product extends Model
      public function user() {
         return $this->belongsTo(User::class, 'user_id');
     }
+    //relationship to orders
+    public function orders()
+    {
+    return $this->hasMany(Order::class);
+    }
 }
