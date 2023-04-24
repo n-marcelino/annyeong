@@ -74,6 +74,9 @@ Route::get('/checkout', [ProductsController::class, 'checkout'])->middleware('au
 //orderplaced
 Route::post('/orderplaced', [ProductsController::class, 'orderplaced']);
 
+//orderlist
+Route::get('/myorders', [ProductsController::class, 'myorders'])->middleware('auth');
+
 
 
 

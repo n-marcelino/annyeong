@@ -46,6 +46,7 @@
                 <a href="/"><i class="fa-solid fa-house"></i></a>
                 @auth
                     <a href="/products/manage">dashboard</a>
+                    <a href="/myorders">Your Orders</a>
                 @else
                     <a href="/login">login</a>
                     <a href="/register">register</a>

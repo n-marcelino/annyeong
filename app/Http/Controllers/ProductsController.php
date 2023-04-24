@@ -172,6 +172,7 @@ public function orderplaced(Request $request)
 {
     $userID = auth()->id();
     $allcart = Cart::where('user_id', $userID)->get();
+
     foreach($allcart as $cart) {
         $order = new Order;
         $order->product_id = $cart['product_id'];
@@ -180,22 +181,40 @@ public function orderplaced(Request $request)
         $order->payment_method = $request->payment;
         $order->payment_status = "pending";
         $order->address = $request->address;
+        $order->quantity = $cart['quantity'];
         $order->save();
 
         $product = Product::find($cart['product_id']);
         $product->stock -= $cart['quantity'];
 
-        // Check if the product's stock has reached 0
         if ($product->stock == 0) {
             $product->delete();
         } else {
             $product->save();
         }
-
-        $allcart = Cart::where('user_id', $userID)->delete();
     }
+
+    Cart::where('user_id', $userID)->delete();
+
     $request->input();
     return redirect('/');
+}
+
+public function myorders()
+{
+    $userID = auth()->id();
+    $orders = DB::table('orders')
+    ->join('products', 'orders.product_id', '=', 'products.id')
+    ->where('orders.user_id', $userID)
+    ->get();
+
+    $total = 0;
+    foreach ($orders as $item) {
+        $item->totalPrice = $item->price * $item->quantity;
+        $total += $item->totalPrice;
+    }
+
+    return view('myorders', ['orders'=>$orders, 'total' => $total]);
 }
 
 

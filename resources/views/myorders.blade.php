@@ -25,42 +25,41 @@
     <div class="container">
         <header>
             <h1 class="text-3xl text-center font-bold text-pink-900 my-6 uppercase">
-                Inside Your Cart
+                Your Orders
             </h1>
         </header>
 
         <table class="w-full table-auto rounded-sm mt-20 mb-40">
             <tbody>
 
-                @unless ($products->isEmpty())
-                    @foreach ($products as $product)
+                @unless ($orders->isEmpty())
+                    @foreach ($orders as $product)
                         <tr class="border-gray-300">
                             <td class="px-2 py-6 border-t border-b text-base">
                                 <img id="product-photo"
                                      src="{{ $product->photo ? asset('storage/' . $product->photo) : asset('/images/no-image.png') }}"
                                      alt="">
+                            </td><td class="px-2 py-6 border-t border-b text-base">
+                                <h3>{{ $product->quantity }}</h3>
                             </td>
                             <td class="px-2 py-6 border-t border-b text-base">
                                 <h3>{{ $product->name }}</h3>
                             </td>
-
+                            <td class="px-2 py-6 border-t border-b text-base">
+                                <h3>{{ $product->status }}</h3>
+                            </td>
+                            <td class="px-2 py-6 border-t border-b text-base">
+                                <h3>{{ $product->payment_method }}</h3>
+                            </td>
+                            <td class="px-2 py-6 border-t border-b text-base">
+                                <h3>{{ $product->payment_status }}</h3>
+                            </td>
                             <td class="px-2 py-6 border-t border-b text-base">
                                 <h4>₱ {{ $product->price }}</h4>
                             </td>
                             <td class="px-2 py-6 border-t border-b text-base">
-                                <h4 id="stock">In-stock: {{ $product->stock }}</h4>
+                                <h4>₱ {{ $product->price * $product->quantity }}</h4>
                             </td>
-                            <td class="px-2 py-6 border-t border-b text-base">
-                                <form action="/updatecart/{{ $product->cart_id }}" method="POST">
-                                    @csrf
-                                <input type="number" name="quantity" min="1" max="{{ $product->stock }}" value="{{ $product->cart_quantity }}" class="w-20">
-                                <button type="submit" class="btn btn-default" id="btn">Update Cart</button>
-                            </form>
-                            </td>
-                            <td class="px-1 py-6 border-t border-b border-gray-300 text-base text-red-700">
-                                <a href="/removecart/{{ $product->cart_id }}" onclick="return showConfirmation()">Remove <i class="fa-solid fa-trash"></i></a>
-                            </td>
-
                         </tr>
                     @endforeach
                 @else
@@ -75,11 +74,6 @@
         </table>
 
         <a href="/" class="back-button" id="btn1"><i class="fa-solid fa-arrow-left"></i> Back</a>
-        @if ($products->isNotEmpty())
-            <a href="/checkout" class="shop-button" id="btn2"><i class="fa-solid fa-bag-shopping"></i>Checkout</a>
-        @else
-            <a href="/checkout" class="shop-button" id="btn2" style="display:none"><i class="fa-solid fa-bag-shopping"></i>Checkout</a>
-        @endif
 
     </div>
 </body>
