@@ -68,7 +68,9 @@
                                 <h3>{{ $order->payment_status }}</h3>
                             </td>
                             <td class="px-2 py-6 border-t border-b text-base text-right">
-                                <h4 class="price">₱ {{ $order->product_price }}</h4>
+                                <div class="price-wrap">
+                                    <h4 class="price">₱ {{ $order->product_price }}</h4>
+                                </div>
                             </td>
                             <td class="px-2 py-6 border-t border-b border-b text-base text-right">
                                 <h4>₱ {{ $order->product_price * $order->quantity }}</h4>

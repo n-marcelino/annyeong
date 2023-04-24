@@ -176,7 +176,7 @@
                         </div>
                     @endforeach
                 @else
-                    <p>No products found.</p>
+                    <p class="text-center">No products found.</p>
                 @endunless
             </div>
 
