@@ -12,7 +12,7 @@
         integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-    <link rel="stylesheet" href="{{ url('css/cartlist.css') }}">
+    <link rel="stylesheet" href="{{ url('css/orders.css') }}">
 
     <script src="//unpkg.com/alpinejs" defer></script>
     <script src="https://cdn.tailwindcss.com"></script>
@@ -30,6 +30,18 @@
         </header>
 
         <table class="w-full table-auto rounded-sm mt-20 mb-40">
+            <thead>
+                <tr>
+                    <th class="text-left px-2 py-6 text-gray-400 font-normal"></th>
+                    <th class="text-left px-2 py-6 text-gray-400 font-normal">Quantity</th>
+                    <th class="text-left px-2 py-6 text-gray-400 font-normal">Product</th>
+                    <th class="text-left px-2 py-6 text-gray-400 font-normal">Order Status</th>
+                    <th class="text-left px-2 py-6 text-gray-400 font-normal">Payment Method</th>
+                    <th class="text-left px-2 py-6 text-gray-400 font-normal">Payment Status</th>
+                    <th class="text-left px-2 py-6 text-gray-400 font-normal">Item Price</th>
+                    <th class="text-left px-2 py-6 text-gray-400 font-normal tp">Total Price</th>
+                </tr>
+            </thead>
             <tbody>
 
                 @unless ($orders->isEmpty())
@@ -37,9 +49,10 @@
                         <tr class="border-gray-300">
                             <td class="px-2 py-6 border-t border-b text-base">
                                 <img id="product-photo"
-                                     src="{{ $product->photo ? asset('storage/' . $product->photo) : asset('/images/no-image.png') }}"
-                                     alt="">
-                            </td><td class="px-2 py-6 border-t border-b text-base">
+                                    src="{{ $product->photo ? asset('storage/' . $product->photo) : asset('/images/no-image.png') }}"
+                                    alt="">
+                            </td>
+                            <td class="px-2 py-6 border-t border-b text-base">
                                 <h3>{{ $product->quantity }}</h3>
                             </td>
                             <td class="px-2 py-6 border-t border-b text-base">
@@ -51,21 +64,21 @@
                             <td class="px-2 py-6 border-t border-b text-base">
                                 <h3>{{ $product->payment_method }}</h3>
                             </td>
-                            <td class="px-2 py-6 border-t border-b text-base">
+                            <td class="px-2 py-6 border-t border-b text-base text-left">
                                 <h3>{{ $product->payment_status }}</h3>
                             </td>
-                            <td class="px-2 py-6 border-t border-b text-base">
-                                <h4>₱ {{ $product->price }}</h4>
+                            <td class="px-2 py-6 border-t border-b text-base text-right">
+                                <h4 class="price">₱ {{ $product->price }}</h4>
                             </td>
-                            <td class="px-2 py-6 border-t border-b text-base">
+                            <td class="px-2 py-6 border-t border-b border-b text-base text-right">
                                 <h4>₱ {{ $product->price * $product->quantity }}</h4>
                             </td>
                         </tr>
                     @endforeach
                 @else
                     <tr class="border-gray-300">
-                        <td class="px-2 py-6 border-t border-b border-gray-300 text-base">
-                            <p class="text-center">Annyeong! Your cart is currently empty.</p>
+                        <td class="px-2 py-6 border-t border-b border-r border-l border-gray-300 text-base">
+                            <p class="text-center">Annyeong! You do not have any orders yet.</p>
                         </td>
                     </tr>
                 @endunless

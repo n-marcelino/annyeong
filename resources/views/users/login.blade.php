@@ -29,17 +29,31 @@
             margin-bottom: 70px;
         }
 
+        .logo{
+            width: 200px;
+            height: 200px;
+        }
+
         .brand{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
             position: relative;
-            top: 310px;
+            top: 150px;
             left: -70px;
             color: white;
             z-index:999;
         }
 
+        .logo-container {
+            display: flex;
+            justify-content: center;
+        }
+
+
         .title{
             font-weight: bold;
-            margin-left: 20rem;
+            margin-left: 0;
             font-size: 50px;
         }
 
@@ -76,6 +90,7 @@
             font-weight: bold;
             color: #a2476a;
         }
+
 
         .header2 {
             color: #CDCDCD;
@@ -149,8 +164,13 @@
     </div>
 
     <div class="brand">
+        <div class="logo-container">
+            <img src="{{ url('/images/Annyeong 2.png') }}" class="logo" alt="">
+        </div>
         <h1 class="title">annyeong!</h1>
-        <h1 class="subtitle">Step into a K-pop lover's paradise with annyeong! <br> Your ultimate online destination for the hottest K-pop merch and more!</h1>
+        <h1 class="subtitle">Step into a K-pop lover's paradise with annyeong!
+        <br> Your ultimate online destination for the hottest K-pop merch and more!</h1>
     </div>
+
 
 </form>

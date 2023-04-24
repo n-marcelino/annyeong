@@ -15,10 +15,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 
-
-
-
-
     <!-- Styles -->
     <style>
         body {
@@ -29,17 +25,30 @@
             margin-bottom: 70px;
         }
 
-        .brand {
+        .logo{
+            width: 200px;
+            height: 200px;
+        }
+
+        .brand{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
             position: relative;
-            top: 310px;
-            left: -350px;
+            top: 150px;
+            left: -340px;
             color: white;
-            z-index: 999;
+            z-index:999;
+        }
+
+        .logo-container {
+            display: flex;
+            justify-content: center;
         }
 
         .title {
             font-weight: bold;
-            margin-left: 38rem;
+            margin-left: 0;
             font-size: 50px;
         }
 
@@ -52,7 +61,7 @@
         #form-container {
             float: right;
             position: relative;
-            top: -130px;
+            top: -300px;
             right: 90px;
             background: white;
             border-radius: 25px;
@@ -105,8 +114,12 @@
 <div class="temp"></div>
 
 <div class="brand">
+    <div class="logo-container">
+        <img src="{{ url('/images/Annyeong 2.png') }}" class="logo" alt="">
+    </div>
     <h1 class="title">annyeong!</h1>
-    <h1 class="subtitle">Step into a K-pop lover's paradise with annyeong! <br> Your ultimate online destination for the hottest K-pop merch and more!</h1>
+    <h1 class="subtitle">Step into a K-pop lover's paradise with annyeong!
+    <br> Your ultimate online destination for the hottest K-pop merch and more!</h1>
 </div>
 
 <form method="POST" id="form-container" action="/users">

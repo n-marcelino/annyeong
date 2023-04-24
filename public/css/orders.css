@@ -18,7 +18,7 @@ body{
 
 #product-photo{
     position: relative;
-    left: 50px;
+    left: 10px;
     top: 0;
     width: 80px;
     height: 80px;
@@ -51,32 +51,12 @@ body{
     font-weight: normal;
 }
 
-#quantity{
-    border-bottom: 2px solid #9d9d9d;
-    padding: 5px 12px;
-}
 
-#update {
-    border: 2px solid #a2476a;
-    padding: 5px 12px;
-    font-size: 14px;
-    margin-left: 10px;
-    background: #a2476a;
-    color: #ffffff;
-}
-
-#update:hover {
-    background: #ffffff;
-    color: #a2476a;
-    border: 2px solid #a2476a;
-    }
-
-.back-button,
-.shop-button {
+.back-button{
 display: inline-block;
 position: relative;
-bottom: 0;
-left: 900px;
+bottom: 10px;
+left: 1050px;
 padding: 10px 25px;
 margin-right: 10px;
 color: #a2476a;
@@ -100,19 +80,11 @@ border: 2px solid #a2476a;
 color: #ffffff;
 }
 
-.shop-button {
-border: 2px solid #a2476a;
-background: #a2476a;
-color: #ffffff;
+.price{
+    margin-left: 38px;
 }
 
-.shop-button i {
-margin-left: 1px;
-margin-right: 5px;
-font-size: 15px;
-}
-
-.shop-button:hover {
-background: #ffffff;
-color: #a2476a;
+.tp{
+   position: relative;
+   left: -50px;
 }

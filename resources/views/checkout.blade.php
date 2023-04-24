@@ -51,7 +51,7 @@
                     @csrf
                     <div>
                         <i class="fa-sharp fa-regular fa-location-dot" id="loc"></i>
-                        <textarea name="address" placeholder="Enter your exact receiving address: " class="form-control" id="address"></textarea><br>
+                        <textarea name="address" placeholder="Enter your exact receiving address: " class="form-control" id="address" required></textarea><br>
                     </div>
             </div>
         </div>
@@ -112,7 +112,7 @@
                     <span><i class="fa-regular fa-credit-card"></i>Credit/Debit Card</span>
                 </label>
                 <label for="payment-cod">
-                    <input type="radio" id="payment-cod" value="cod" name="payment">
+                    <input type="radio" id="payment-cod" value="cod" name="payment" >
                     <span><i class="fa-sharp fa-regular fa-money-bill"></i>Cash on Delivery</span>
                 </label>
             </div>

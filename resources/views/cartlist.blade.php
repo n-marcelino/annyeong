@@ -53,8 +53,8 @@
                             <td class="px-2 py-6 border-t border-b text-base">
                                 <form action="/updatecart/{{ $product->cart_id }}" method="POST">
                                     @csrf
-                                <input type="number" name="quantity" min="1" max="{{ $product->stock }}" value="{{ $product->cart_quantity }}" class="w-20">
-                                <button type="submit" class="btn btn-default" id="btn">Update Cart</button>
+                                <input type="number" name="quantity" id="quantity" min="1" max="{{ $product->stock }}" value="{{ $product->cart_quantity }}" class="w-20">
+                                <button type="submit" class="btn btn-default" id="update">Update Quantity</button>
                             </form>
                             </td>
                             <td class="px-1 py-6 border-t border-b border-gray-300 text-base text-red-700">
