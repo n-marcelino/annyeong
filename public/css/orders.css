@@ -88,3 +88,10 @@ color: #ffffff;
    position: relative;
    left: -50px;
 }
+
+.none{
+    position: absolute;
+    top: 300px;
+    left: 550px;
+}
+

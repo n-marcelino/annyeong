@@ -75,16 +75,17 @@
                             </td>
                         </tr>
                     @endforeach
-                @else
-                    <tr class="border-gray-300">
-                        <td class="px-2 py-6 border-t border-b border-r border-l border-gray-300 text-base">
-                            <p class="text-center">Annyeong! You do not have any orders yet.</p>
-                        </td>
-                    </tr>
+                    @else
+
+                    <p class="text-center none">Annyeong! You do not have any orders yet.</p>
+
                 @endunless
 
             </tbody>
         </table>
+
+
+
 
         <a href="/" class="back-button" id="btn1"><i class="fa-solid fa-arrow-left"></i> Back</a>
 
