@@ -45,33 +45,33 @@
             <tbody>
 
                 @unless ($orders->isEmpty())
-                    @foreach ($orders as $product)
+                    @foreach ($orders as $order)
                         <tr class="border-gray-300">
                             <td class="px-2 py-6 border-t border-b text-base">
                                 <img id="product-photo"
-                                    src="{{ $product->photo ? asset('storage/' . $product->photo) : asset('/images/no-image.png') }}"
+                                    src="{{ $order->product_photo ? asset('storage/' . $order->product_photo) : asset('/images/no-image.png') }}"
                                     alt="">
                             </td>
                             <td class="px-2 py-6 border-t border-b text-base">
-                                <h3>{{ $product->quantity }}</h3>
+                                <h3>{{ $order->quantity }}</h3>
                             </td>
                             <td class="px-2 py-6 border-t border-b text-base">
-                                <h3>{{ $product->name }}</h3>
+                                <h3>{{ $order->product_name }}</h3>
                             </td>
                             <td class="px-2 py-6 border-t border-b text-base">
-                                <h3>{{ $product->status }}</h3>
+                                <h3>{{ $order->status }}</h3>
                             </td>
                             <td class="px-2 py-6 border-t border-b text-base">
-                                <h3>{{ $product->payment_method }}</h3>
+                                <h3>{{ $order->payment_method }}</h3>
                             </td>
                             <td class="px-2 py-6 border-t border-b text-base text-left">
-                                <h3>{{ $product->payment_status }}</h3>
+                                <h3>{{ $order->payment_status }}</h3>
                             </td>
                             <td class="px-2 py-6 border-t border-b text-base text-right">
-                                <h4 class="price">₱ {{ $product->price }}</h4>
+                                <h4 class="price">₱ {{ $order->product_price }}</h4>
                             </td>
                             <td class="px-2 py-6 border-t border-b border-b text-base text-right">
-                                <h4>₱ {{ $product->price * $product->quantity }}</h4>
+                                <h4>₱ {{ $order->product_price * $order->quantity }}</h4>
                             </td>
                         </tr>
                     @endforeach
