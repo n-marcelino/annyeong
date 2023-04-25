@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
+use App\Models\Comment;
 use App\Models\Cart;
 use App\Models\Order;
 use Illuminate\Http\Request;
@@ -84,16 +85,19 @@ class ProductsController extends Controller
         return redirect('/');
 
     }
-
+    
     //show single product
-    public function show(Product $product){
-        return view('product', [
-            'product' => $product
-        
-        ]);
-
-        
+    public function show(Product $product)
+    {
+        // Check if the user has the product in their orderlist
+        $hasProduct = auth()->user()->orders()->where('product_id', $product->id)->exists();
+    
+        // Fetch comments for the product
+        $comments = Comment::where('product_id', $product->id)->get();
+    
+        return view('product',['product' => $product], compact('product', 'comments', 'hasProduct'));
     }
+    
 
     //manage posts
     public function manage()

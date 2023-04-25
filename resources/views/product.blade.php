@@ -99,17 +99,33 @@
             <button class="btn btn-primary">Add To Cart <i class="fa-solid fa-cart-plus"></i></button>
         </form>
     @endif
-@endauth
-
-
+    @endauth
             <p class="tag-title">Tags</p>
             <button id="tag"> {{ $product['category'] }} </button> <button id="tag"> {{ $product['fandom'] }} </button>
-
-
         </div>
-
         <img id="product-photo" src="{{ $product->photo ? asset('storage/' . $product->photo) : asset('/images/no-image.png') }}" alt="">
     </div>
+
+    @if ($hasProduct)
+    <form method="POST" action="{{ route('comments.store') }}">
+        @csrf
+        Leave a comment
+        <input type="hidden" name="product_id" value="{{ $product->id }}">
+        <textarea name="comment"></textarea>
+        <button type="submit">Submit</button>
+    </form>
+    @else
+    <p>You need to purchase this product before leaving a comment.</p>
+    @endif  
+      <p>Product Reviews</p>
+      @foreach ($product->comments as $comment)
+      <div>
+      <strong>{{ $comment->user->uname }}</strong>
+      <p>{{ $comment->comment }}</p>
+      </div>
+      @endforeach
+
+  
 
 
 

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProductsController;
+use App\Http\Controllers\CommentsController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Models\Product;
@@ -76,6 +77,10 @@ Route::post('/orderplaced', [ProductsController::class, 'orderplaced']);
 
 //orderlist
 Route::get('/myorders', [ProductsController::class, 'myorders'])->middleware('auth');
+
+//comments
+Route::post('/comments', [CommentsController::class, 'store'])->name('comments.store');
+
 
 
 
