@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
 
     <title>annyeong!</title>
@@ -34,35 +33,43 @@
 
     <header class="header">
         <div class="header-left">
-            <a href="/" class="logo"><img class="logo-image" src="{{ url('/images/Annyeong.png') }}" alt="Logo">Annyeong <span class="welcome-user">@auth , {{ auth()->user()->uname }}! @endauth</span></a>
-          </div>
+            <a href="/" class="logo"> <img class="logo-image" src="{{ url('/images/Annyeong.png') }}" alt="Logo">Annyeong
+                <span class="welcome-user">@auth , {{ auth()->user()->uname }}!
+                    @endauth
+                </span></a>
+        </div>
 
         <div class="header-right">
-          <nav class="navbar">
-            <a href="/"><i class="fa-solid fa-house"></i></a>
-            @auth
-              <a href="/products/manage">dashboard</a>
-            @else
-              <a href="/login">login</a>
-              <a href="/register">register</a>
-            @endauth
-            <a href="">About the Devs</a>
-          </nav>
-          <div class="icons">
-            <a href="/cartlist"><div id="cart-btn" class="fas fa-cart-shopping"></div></a>
-            @auth
-              <div class="navbar-item">
-                <form method="POST" action="/logout">
-                  @csrf
-                  <button type="submit" class="logout">
-                    <i class="fa-solid fa-right-from-bracket"></i>
-                  </button>
-                </form>
-              </div>
-            @endauth
-          </div>
+            <nav class="navbar">
+                <a href="/"><i class="fa-solid fa-house"></i></a>
+                @auth
+                    <a href="/products/manage">dashboard</a>
+                    <a href="/myorders">Your Orders</a>
+                @else
+                    <a href="/login">login</a>
+                    <a href="/register">register</a>
+                @endauth
+                <a href="">About the Devs</a>
+            </nav>
+            <div class="icons">
+                <a href="/cartlist">
+                    <div id="cart-btn" class="fas fa-cart-shopping">
+                        <span id="cart-item-count"></span>
+                    </div>
+                </a>
+                @auth
+                    <div class="navbar-item">
+                        <form method="POST" action="/logout">
+                            @csrf
+                            <button type="submit" class="logout">
+                                <i class="fa-solid fa-right-from-bracket"></i>
+                            </button>
+                        </form>
+                    </div>
+                @endauth
+            </div>
         </div>
-      </header>
+    </header>
 
     <div class="container">
         <a href="/" class="back-button"><i class="fa-solid fa-arrow-left"></i> Back</a>
@@ -104,29 +111,26 @@
             <button id="tag"> {{ $product['category'] }} </button> <button id="tag"> {{ $product['fandom'] }} </button>
         </div>
         <img id="product-photo" src="{{ $product->photo ? asset('storage/' . $product->photo) : asset('/images/no-image.png') }}" alt="">
+
+        <h1 class="reviews">Product Reviews <i class="fa-solid fa-comment-dots"></i></h1>
+          @foreach ($product->comments as $comment)
+          <div class="comment">
+            <h1 class="user"><i class="fa-solid fa-user"></i>{{ $comment->user->uname }}</h1>
+            <p class="com">: {{ $comment->comment }}</p>
+          </div>
+          @endforeach
+
+        @if ($hasProduct)
+        <form method="POST" id="review" action="{{ route('comments.store') }}">
+            @csrf
+            <h1><i class="fa-solid fa-user"></i> You</h1>
+            <input type="hidden" name="product_id" value="{{ $product->id }}">
+            <textarea name="comment"></textarea>
+            <button type="submit">Leave a review</button>
+        </form>
+        @else
+        @endif
     </div>
-
-    @if ($hasProduct)
-    <form method="POST" action="{{ route('comments.store') }}">
-        @csrf
-        Leave a comment
-        <input type="hidden" name="product_id" value="{{ $product->id }}">
-        <textarea name="comment"></textarea>
-        <button type="submit">Submit</button>
-    </form>
-    @else
-    <p>You need to purchase this product before leaving a comment.</p>
-    @endif  
-      <p>Product Reviews</p>
-      @foreach ($product->comments as $comment)
-      <div>
-      <strong>{{ $comment->user->uname }}</strong>
-      <p>{{ $comment->comment }}</p>
-      </div>
-      @endforeach
-
-  
-
 
 
 </body>

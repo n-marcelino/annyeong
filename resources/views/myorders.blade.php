@@ -56,7 +56,7 @@
                                 <h3>{{ $order->quantity }}</h3>
                             </td>
                             <td class="px-2 py-6 border-t border-b text-base">
-                                <h3>{{ $order->product_name }}</h3>
+                                <h3 class="pname">{{ $order->product_name }}</h3>
                             </td>
                             <td class="px-2 py-6 border-t border-b text-base">
                                 <h3>{{ $order->status }}</h3>

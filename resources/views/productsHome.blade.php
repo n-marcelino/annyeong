@@ -91,64 +91,6 @@
 
         <div class="main-body-container">
             @include('partials._search')
-            <div class="filter-container">
-                <div class="categ-form">
-                    <h1 class="text-pink-900" id="title"> <i class="fa-solid fa-filter text-pink-900"></i> Search
-                        Filter</h1>
-                    <h1 class="heading"><b>Category</b></h1>
-                    <form action="/">
-                        <input type="checkbox" value="Clothing">
-                        <label for="Clothing" style="font-size: 14px;"> Clothing</label><br>
-
-                        <input type="checkbox" value="Clothing">
-                        <label for="Accessories" style="font-size: 14px;"> Accessories</label><br>
-
-                        <input type="checkbox" value="Clothing">
-                        <label for="Album" style="font-size: 14px;"> Album</label><br>
-
-                        <input type="checkbox" value="Clothing">
-                        <label for="Photocard" style="font-size: 14px;"> Photocard</label><br>
-                    </form>
-
-                    <h1 class="heading2"><b>Fandom</b></h1>
-                    <form action="/">
-                        <input type="checkbox" value="Blink">
-                        <label for="Blink" style="font-size: 14px;"> Blink</label><br>
-
-                        <input type="checkbox" value="Army">
-                        <label for="Army" style="font-size: 14px;"> Army</label><br>
-
-                        <input type="checkbox" value="Once">
-                        <label for="Once" style="font-size: 14px;"> Once</label><br>
-
-                        <input type="checkbox" value="Reveluv">
-                        <label for="Reveluv" style="font-size: 14px;"> Reveluv</label><br>
-
-                        <input type="checkbox" value="Swith">
-                        <label for="Swith" style="font-size: 14px;"> Swith</label><br>
-
-                        <input type="checkbox" value="Fearnot">
-                        <label for="Fearnot" style="font-size: 14px;"> Fearnot</label><br>
-                    </form>
-
-                    <h1 class="heading3"><b>Price</b></h1>
-                    <form action="/">
-                        <input type="checkbox" value="lowest">
-                        <label for="lowest" style="font-size: 14px;"> Less than ₱100 </label><br>
-
-                        <input type="checkbox" value="range">
-                        <label for="range" style="font-size: 14px;"> ₱100-₱500</label><br>
-
-                        <input type="checkbox" value="highest">
-                        <label for="highest" style="font-size: 14px;"> ₱500 above</label><br>
-                    </form>
-
-
-
-                </div>
-
-
-            </div>
 
             <div class="products-container">
                 @unless (count($products) == 0)

@@ -1,5 +1,4 @@
 *{
-    font-family: Arial, Helvetica, sans-serif;
     text-transform: capitalize;
     overflow-x: hidden;
 }
@@ -47,6 +46,15 @@ body{
     font-weight: normal;
 }
 
+.logo img {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
 .header .welcome-user {
     margin-right: 1rem;
     font-size: 16px;
@@ -87,23 +95,26 @@ body{
     margin-left: auto;
 }
 
+.header-right .icons {
+    display: flex;
+    align-items: center;
+    margin-left: auto; /* updated margin */
+}
+
 .header-right .icons a,
 .header-right .icons div {
     font-size: 15px;
-    margin-left: 1rem;
-    margin-top: 6px;
+    margin-left: 1rem; /* updated margin */
+    margin-top: 0; /* updated margin */
     cursor: pointer;
     color: #a2476a;
 }
 
-.logo img {
-    display: inline-block;
-    width: 40px;
-    height: 40px;
-    margin-right: 10px;
-    border-radius: 50%;
-    object-fit: cover;
+.header-right .icons a:hover,
+.header-right .icons div:hover {
+    color: #803753;
 }
+
 
 .header-right .icons a:hover,
 .header-right .icons div:hover {
@@ -119,7 +130,8 @@ body{
     background: none;
     border: none;
     padding: 0;
-    margin-top: 0px;
+    margin-top: 6px;
+    margin-left: 1rem;
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -133,7 +145,8 @@ body{
 .navbar-item .logout:hover {
     color: #803753;
 }
-  .header.scrolled {
+
+.header.scrolled {
     background-color: #a2476a;
 }
 
@@ -157,9 +170,10 @@ body{
 
 
 .container{
-    margin-top: 220px;
-    margin-bottom: 50px;
-    margin-left: 150px;
+    margin: 210px auto;
+    max-width: 800px;
+    width: 100%;
+    overflow: hidden; /* add this line */
 }
 
 .back-button {
@@ -238,7 +252,7 @@ h3#seller{
 
 #tag {
     margin-top: -10px;
-    margin-bottom: 50px;
+    margin-bottom: 20px;
     padding: 10px 20px;
     font-size: 12px;
     letter-spacing: 2.5px;
@@ -307,5 +321,77 @@ h3#seller{
     height: 500px;
     box-shadow: 0 0 40px rgba(0,0,0,0.5);
 }
+
+form#review {
+    padding: 20px; /* Optional: add some padding to the form */
+    margin-left: 2px;
+    width: 53%;
+  }
+
+  form#review h1{
+    color: #A2A2A2;
+    margin-top: 40px;
+    margin-left: 10px;
+  }
+
+  form#review h1 i{
+    margin-right: 3px;
+    font-size: 10px;
+  }
+
+  textarea {
+    background: #ffffff;
+    border: 1px solid #a2476a;
+    border-radius: 20px;
+    width: 100%;
+    height: 100px;
+    resize: vertical;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+
+  button[type="submit"] {
+    display: block;
+    margin: 10px auto;
+    background: #a2476a;
+    color: #ffffff;
+    width: 100%;
+    padding: 5px 15px;
+    border-radius: 20px;
+  }
+
+  button[type="submit"]:hover {
+    background: #77344e;
+  }
+
+.reviews{
+    color: #a2476a;
+    margin-top: 70px;
+    margin-bottom: 25px;
+}
+
+.comment {
+    background:#a2476a;
+    color: #ffffff;
+    border-radius: 20px;
+    padding: 10px;
+    margin-left: 20px;
+    margin-bottom: 10px;
+    width: 50%;
+  }
+
+.comment .user, .com{
+    margin-left: 15px;
+}
+
+.comment i{
+    font-size: 10px;
+    margin-right: 5px;
+}
+
+.comment .user{
+    font-weight: bolder;
+}
+
 
 
