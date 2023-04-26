@@ -30,6 +30,12 @@
     </header>
 
     <table class="w-full table-auto rounded-sm mt-28 mb-40">
+        <thead>
+            <th class="text-left px-2 py-6 text-gray-400 font-normal"></th>
+                    <th class="text-left px-2 py-6 text-gray-400 font-normal">Amount Sold</th>
+                    <th class="text-left px-2 py-6 text-gray-400 font-normal"></th>
+                    <th class="text-left px-2 py-6 text-gray-400 font-normal"></th>
+        </thead>
         <tbody>
             @unless ($products->isEmpty())
                 @foreach ($products as $product)
