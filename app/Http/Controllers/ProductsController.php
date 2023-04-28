@@ -89,10 +89,13 @@ class ProductsController extends Controller
     public function show(Product $product)
     {
     $hasProduct = false; // set initial value to false
+
     
     if (auth()->check()) {
-        $hasProduct = auth()->user()->orders()->where('product_id', $product->id)->exists();
+        $user = auth()->user();
+        $hasProduct = $user->orders()->where('product_id', $product->id)->exists();
     }
+
 
     $comments = Comment::where('product_id', $product->id)->get();
 

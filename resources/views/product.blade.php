@@ -87,7 +87,7 @@
         $postedByUser = false;
         if (auth()->user()->cart !== null) {
             foreach(auth()->user()->cart as $item) {
-                if ($item->id == $product->id) {
+                if ($item->product_id == $product->id) {
                     $inCart = true;
                     break;
                 }
