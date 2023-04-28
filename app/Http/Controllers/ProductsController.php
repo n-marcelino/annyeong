@@ -86,16 +86,17 @@ class ProductsController extends Controller
 
     }
     
-    //show single product
     public function show(Product $product)
     {
-        // Check if the user has the product in their orderlist
+    $hasProduct = false; // set initial value to false
+    
+    if (auth()->check()) {
         $hasProduct = auth()->user()->orders()->where('product_id', $product->id)->exists();
-    
-        // Fetch comments for the product
-        $comments = Comment::where('product_id', $product->id)->get();
-    
-        return view('product',['product' => $product], compact('product', 'comments', 'hasProduct'));
+    }
+
+    $comments = Comment::where('product_id', $product->id)->get();
+
+    return view('product', compact('product', 'comments', 'hasProduct'));
     }
     
 
